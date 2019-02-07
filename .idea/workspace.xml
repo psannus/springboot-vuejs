@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53bb1a4f-470d-47b2-80bd-afdb6f34d9b3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/server/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/server/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/petz/springbootvuejs/RestRepositoryConfigurator.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/hrp/springapp/RestRepositoryConfigurator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/petz/springbootvuejs/SpringBootVuejsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/hrp/springapp/SpringApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/petz/springbootvuejs/Todo.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/hrp/springapp/Todo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/petz/springbootvuejs/TodoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/hrp/springapp/TodoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/petz/springbootvuejs/SpringBootVuejsApplicationTests.java" beforeDir="false" />
-    </list>
+    <list default="true" id="53bb1a4f-470d-47b2-80bd-afdb6f34d9b3" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/server/.gradle/" />
     <ignored path="$PROJECT_DIR$/server/build/" />
     <ignored path="$PROJECT_DIR$/server/out/" />
@@ -99,9 +89,27 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-923590935">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="txt" value="22" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="22" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/src/main/java/com/hrp/springapp/Todo.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -124,6 +132,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
@@ -318,7 +327,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$/server" value="4648622254744" />
+        <entry key="$PROJECT_DIR$/server" value="4648630480666" />
         <entry key="$PROJECT_DIR$/server/.gradle" value="0" />
         <entry key="$PROJECT_DIR$/server/build.gradle" value="480368310" />
         <entry key="$PROJECT_DIR$/server/settings.gradle" value="3704356363" />
@@ -446,11 +455,11 @@
     </option>
     <option name="projectSyncType">
       <map>
+        <entry key="$PROJECT_DIR$/server" value="RE_IMPORT" />
         <entry key="$PROJECT_DIR$/../../KOOL/exjdbc" value="PREVIEW" />
         <entry key="$PROJECT_DIR$/../../KOOL/exjpa" value="PREVIEW" />
         <entry key="$PROJECT_DIR$/../../KOOL/exmvc" value="PREVIEW" />
         <entry key="$PROJECT_DIR$/../../KOOL/hwtests" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/server" value="RE_IMPORT" />
       </map>
     </option>
   </component>
@@ -486,7 +495,7 @@
       <path value="$PROJECT_DIR$/client/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -496,8 +505,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -519,6 +526,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -616,7 +625,16 @@
       <updated>1549540352351</updated>
       <workItem from="1549540359409" duration="497000" />
       <workItem from="1549540880702" duration="1530000" />
+      <workItem from="1549543497647" duration="321000" />
     </task>
+    <task id="LOCAL-00001" summary="Solved a yarn warning: package-lock.json found &#10;&#10;Your project contains lock files generated by tools other than Yarn. It is advised not to mix package managers in order to avoid resolution inconsistencies caused by unsynchronized lock files. To clear this warning, remove package-lock.json.">
+      <created>1549543775807</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1549543775807</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -625,13 +643,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2027000" />
+    <option name="totallyTimeSpent" value="2348000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12579957" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -640,10 +658,9 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="npm" order="7" side_tool="true" />
       <window_info id="Web" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.329718" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -655,6 +672,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.329718" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -674,6 +692,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Solved a yarn warning: package-lock.json found &#10;&#10;Your project contains lock files generated by tools other than Yarn. It is advised not to mix package managers in order to avoid resolution inconsistencies caused by unsynchronized lock files. To clear this warning, remove package-lock.json." />
+    <option name="LAST_COMMIT_MESSAGE" value="Solved a yarn warning: package-lock.json found &#10;&#10;Your project contains lock files generated by tools other than Yarn. It is advised not to mix package managers in order to avoid resolution inconsistencies caused by unsynchronized lock files. To clear this warning, remove package-lock.json." />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/client/yarn.lock">
       <provider selected="true" editor-type-id="text-editor" />
@@ -684,9 +706,7 @@
     <entry file="file://$PROJECT_DIR$/client/babel.config.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json" />
     <entry file="file://$PROJECT_DIR$/server/settings.gradle">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -722,6 +742,7 @@
           <Categories>
             <Category>Show filesets as groups</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
@@ -1219,12 +1240,13 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="0.8164271047227926" x="658.6192152917506" y="4945.244718309859" />
+          <settings layout="Hierarchic Group" zoom="0.8164271047227926" x="659.0" y="4945.0" />
           <SelectedNodes />
           <Categories>
             <Category>Local context</Category>
             <Category>Properties</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
