@@ -1,7 +1,16 @@
 # springboot-vuejs
-ITI0208 1. praks
 
-* server: ./gradlew bootRun
-* client: yarn serve
+* server:
+```
+    ./gradlew bootRun
+    localhost:9000
+```
+
+* client:
+```
+    npm install
+    yarn serve
+    localhost:8080
+```
 
 enjoy
