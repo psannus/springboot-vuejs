@@ -8,7 +8,7 @@
 
 * client:
 ```
-    npm install
+    yarn install
     yarn serve
     localhost:8080
 ```
