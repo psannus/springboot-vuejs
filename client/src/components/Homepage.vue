@@ -1,13 +1,7 @@
 <template>
     <div class="home_container">
-        <div v-bind:style="{ display: computedDisplay }" class="product_selection">
-            <button class="product">Meat/Animal products</button>
-            <button class="product">Dairy</button>
-            <button class="product">Vegetable/Fruit</button>
-            <button class="product">Drinks</button>
-            <button class="product">Sweets/Snacks</button>
-            <button class="product">Dry food</button>
-            <button class="product">Other</button>
+        <div id="app" v-bind:style="{ display: computedDisplay }" class="product_selection">
+            <category-component v-for="category in categories" :category="category"/>
         </div>
 
         <div id="add_product" class="add_product">
@@ -17,10 +11,36 @@
 </template>
 
 <script>
+    import Vue from "vue";
+
+    const categories = [
+        {
+            id: 1,
+            name: 'Meat/animal products',
+            img: ''
+        },
+        {
+            id: 2,
+            name: 'Dairy',
+            img: ''
+        },
+        {
+            id: 3,
+            name: 'Vegetable/Fruit',
+            img: ''
+        },
+    ];
+    Vue.component('category-component', {
+        template: `<button class="product">{{category.name}}</button>`,
+        props: {
+            category: Object
+        }
+    });
     export default {
         data() {
             return {
-                display: "none"
+                display: "none",
+                categories
             }
         },
         computed: {

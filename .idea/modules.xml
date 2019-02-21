@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/client/client.iml" filepath="$PROJECT_DIR$/client/client.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/springapp-backend.iml" filepath="$PROJECT_DIR$/.idea/modules/springapp-backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/springapp-backend.iml" filepath="$PROJECT_DIR$/.idea/modules/springapp-backend.iml" group="springapp-backend" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/springapp-backend_main.iml" filepath="$PROJECT_DIR$/.idea/modules/springapp-backend_main.iml" group="springapp-backend" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/springapp-backend_test.iml" filepath="$PROJECT_DIR$/.idea/modules/springapp-backend_test.iml" group="springapp-backend" />
       <module fileurl="file://$PROJECT_DIR$/.idea/springboot-vuejs.iml" filepath="$PROJECT_DIR$/.idea/springboot-vuejs.iml" />
