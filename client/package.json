@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "0.18.0",
     "vue": "^2.5.22",
+    "vue-router": "^3.0.2",
     "vuejs-logger": "1.5.3"
   },
   "devDependencies": {
