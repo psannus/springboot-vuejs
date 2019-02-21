@@ -80,4 +80,23 @@ body {
     background-color: green;
     height: 36em;
     width: 80%;
+    position: relative;
+}
+
+.add_product {
+    margin-bottom: 2em;
+    position: absolute;
+    bottom: 0;
+}
+
+.circle {
+    background-color: #d23f31;
+    border-radius: 999em;
+    width: 56px;
+    height: 56px;
+    line-height: 1;
+    font-size: 36px;
+    position: relative;
+    cursor: pointer;
+    border: 0;
 }
