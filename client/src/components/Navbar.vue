@@ -1,7 +1,9 @@
 <template>
     <div class="nav_container">
         <div class="topnav">
-            <img class="logo" alt="Trackify" src="../assets/logo.png">
+            <a href="#">
+                <img class="logo" alt="Trackify" src="../assets/logo.png">
+            </a>
         </div>
         <div class="navbar">
             <a href="#">Stock</a>
