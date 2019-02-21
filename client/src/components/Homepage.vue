@@ -1,5 +1,7 @@
 <template>
-    
+    <div class="home_container">
+
+    </div>
 </template>
 
 <script>
@@ -7,7 +9,3 @@
         name: "Homepage"
     }
 </script>
-
-<style scoped>
-
-</style>

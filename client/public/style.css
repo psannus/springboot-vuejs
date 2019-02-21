@@ -1,6 +1,9 @@
 /* Place the navbar at the bottom of the page, and make it stick */
 body {
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav_container {
@@ -14,6 +17,7 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
+    height: 3em;
     text-align: center;
     display: inline-flex;
     justify-content: center;
@@ -66,4 +70,15 @@ body {
     height: 100%;
     object-fit: contain;
     margin: auto;
+}
+
+.home_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.3em;
+    margin-bottom: 2.3em;
+    background-color: green;
+    height: 36em;
+    width: 80%;
 }

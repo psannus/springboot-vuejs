@@ -1,15 +1,18 @@
 <template>
     <div id="app">
+        <Navbar/>
         <Homepage/>
     </div>
 </template>
 
 <script>
-    import Homepage from "./components/Navbar";
+    import Navbar from "./components/Navbar";
+    import Homepage from "./components/Homepage"
     // app Vue instance
     const app = {
         name: 'app',
         components: {
+            Navbar,
             Homepage
         },
         // app initial state

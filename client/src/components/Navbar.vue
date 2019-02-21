@@ -4,9 +4,9 @@
             <img class="logo" alt="Trackify" src="../assets/logo.png">
         </div>
         <div class="navbar">
+            <a href="#">Stock</a>
             <a href="#" class="active">Home</a>
-            <a href="#">News</a>
-            <a href="#">Contact</a>
+            <a href="#">Profile</a>
         </div>
     </div>
 </template>
