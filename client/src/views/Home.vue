@@ -2,7 +2,9 @@
     <div>
         <Navbar activeTab="Home"/>
         <div class="home_container">
-
+            <h1>
+                Welcome to a beautiful Vue app!
+            </h1>
         </div>
     </div>
 </template>

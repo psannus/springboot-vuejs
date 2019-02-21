@@ -2,7 +2,7 @@
     <div>
         <Navbar activeTab="Profile"/>
         <div class="profile_container">
-
+            First_name Last_name
         </div>
     </div>
 </template>
