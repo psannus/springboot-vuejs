@@ -76,8 +76,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2.3em;
-    margin-bottom: 2.3em;
+    margin: 2.3em auto;
     background-color: green;
     height: 36em;
     width: 80%;
