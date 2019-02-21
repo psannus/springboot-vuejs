@@ -27,7 +27,7 @@
     }
 
     .navbar {
-        background-color: #333;
+        background-color: #555;
         overflow: hidden;
         position: fixed;
         bottom: 0;
@@ -62,7 +62,7 @@
     }
 
     .topnav {
-        background-color: #333;
+        background-color: #555;
         width: 100%;
         height: 4em;
         overflow: hidden;
