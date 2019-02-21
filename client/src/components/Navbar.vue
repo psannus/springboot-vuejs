@@ -1,29 +1,18 @@
 <template>
-    <nav class="nav dark-nav">
-        <div class="container">
-            <div class="nav-heading">
-                <a class="brand" href="#">
-                    <img src="logo.png"/>
-                </a>
-            </div>
-            <div class="menu" id="open-navbar1">
-                <ul class="list">
-                    <li><a href="#">page 1</a></li>
-                    <li><a href="#">page 2</a></li>
-                    <li><a href="#">page 3</a></li>
-                    <li><a href="#">page 4</a></li>
-                </ul>
-            </div>
+    <div class="nav_container">
+        <div class="topnav">
+            <img class="logo" alt="Trackify" src="../assets/logo.png">
         </div>
-    </nav>
+        <div class="navbar">
+            <a href="#" class="active">Home</a>
+            <a href="#">News</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "Navbar"
+        name: 'BarRouter'
     }
 </script>
-
-<style scoped>
-
-</style>
