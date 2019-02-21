@@ -1,27 +1,13 @@
 <template>
     <div id="app">
-        <Navbar/>
-        <Homepage/>
+        <router-view/>
     </div>
 </template>
 
 <script>
-    import Navbar from "./components/Navbar";
-    import Homepage from "./components/Homepage"
-    // app Vue instance
-    const app = {
-        name: 'app',
-        components: {
-            Navbar,
-            Homepage
-        },
-        // app initial state
-        data: () => {
-            return {}
-        }
+    export default {
+        name: 'app'
     }
-
-    export default app
 </script>
 
 <style>
