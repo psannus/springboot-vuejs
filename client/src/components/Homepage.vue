@@ -5,7 +5,7 @@
         </div>
 
         <div id="add_product" class="add_product">
-            <button v-on:click="showProductSelection" class="circle">+</button>
+            <button v-on:click="showProductSelection" class="circle">{{value}}</button>
         </div>
     </div>
 </template>
@@ -31,7 +31,12 @@
         },
     ];
     Vue.component('category-component', {
-        template: `<button class="product">{{category.name}}</button>`,
+        data() {
+            return {
+                display: "flex"
+            }
+        },
+        template: `<button v-on:click="showCategorySelection" class="product">{{category.name}}</button>`,
         props: {
             category: Object
         }
@@ -40,6 +45,8 @@
         data() {
             return {
                 display: "none",
+                value: "+",
+                category: 1,
                 categories
             }
         },
@@ -52,6 +59,11 @@
             showProductSelection: function (event) {
                 if (this.display === "none") {
                     this.display = "flex";
+                    this.value = "-"
+
+                } else {
+                    this.display = "none";
+                    this.value = "+"
                 }
             }
         }
