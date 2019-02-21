@@ -32,7 +32,7 @@
         position: fixed;
         bottom: 0;
         width: 100%;
-        height: 3em;
+        height: 2.25rem;
         text-align: center;
         display: inline-flex;
         justify-content: center;
@@ -41,12 +41,13 @@
     /* Style the links inside the navigation bar */
     .navbar a {
         float: left;
-        display: block;
+        display: flex;
         color: #f2f2f2;
         text-align: center;
-        padding: 14px 16px;
+        align-items: center;
+        padding: 1rem 0.75rem;
         text-decoration: none;
-        font-size: 17px;
+        font-size: 0.75rem;
     }
 
     /* Change the color of links on hover */
@@ -64,7 +65,7 @@
     .topnav {
         background-color: #555;
         width: 100%;
-        height: 4em;
+        height: 3.5rem;
         overflow: hidden;
         display: inline-flex;
         justify-content: center;
