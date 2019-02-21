@@ -27,6 +27,7 @@
     }
 
     .navbar {
+        z-index: 1;
         background-color: #555;
         overflow: hidden;
         position: fixed;
@@ -63,6 +64,7 @@
     }
 
     .topnav {
+        z-index: 1;
         background-color: #555;
         width: 100%;
         height: 3.5rem;
