@@ -20,13 +20,21 @@
 </script>
 
 <style scoped>
+    h1, h2, h4 {
+        margin: 10px;
+        font-size: 14px;
+    }
     .product-box {
         display: flex;
         justify-content: space-around;
+        align-items: center;
+        width: 50em;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .circle {
-        background-color: #d23f31;
+        background-color: #c8ccd2;
         border-radius: 999em;
         width: 56px;
         height: 56px;
@@ -39,12 +47,14 @@
 
     .product-image {
         object-fit: contain;
-        width: 3em;
-        height: 3em;
+        align-self: flex-start;
+        width: 9em;
+        height: 9em;
     }
 
     .info-display {
         display: flex;
+        width: 25em;
         flex-direction: column;
     }
 </style>

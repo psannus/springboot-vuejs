@@ -37,8 +37,9 @@
                     //make final choice and load product list
                     axios.get('http://my-json-server.typicode.com/psannus/springboot-vuejs/productList')
                         .then(res => this.productList = res.data);
-                    this.categoriesOpen = false;
+                    this.categoriesOpen = true;
                     this.productOpen = true;
+                    this.categories = [];
                     this.value = this.categories.filter(cat => cat.id === id);
                 }
             },
@@ -49,16 +50,16 @@
                 this.productOpen = false;
                 this.depth = 0;
             },
-            addProduct() {
-                this.value = this.productList[0]
+            addProduct(id) {
+                this.value = this.productList.filter(product => product.id === id);
             }
         },
         data() {
             return {
                 depth: 0,
                 value: "none",
-                productOpen: "false",
-                categoriesOpen: "false",
+                productOpen: false,
+                categoriesOpen: false,
                 categories: [],
                 productList: []
             }

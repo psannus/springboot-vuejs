@@ -29,4 +29,8 @@
         height: 500px;
         position: relative;
     }
+
+    .is-open {
+        display: none;
+    }
 </style>
