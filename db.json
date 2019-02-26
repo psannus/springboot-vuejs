@@ -1,0 +1,16 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Meat/animal products"
+    },
+    {
+      "id": 2,
+      "name": "Dairy"
+    },
+    {
+      "id": 3,
+      "name": "Vegetable/Fruit"
+    }
+  ]
+}
