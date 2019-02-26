@@ -1,25 +1,25 @@
 <template>
-    <div class="stock_container">
-        <div v-bind:key="category.id" v-for="category in categories">
-            <CategoryItem v-bind:category="category" v-on:sel-cat="$emit('sel-cat', category.id)"/>
+    <div class="product_container">
+        <div v-bind:key="product.id" v-for="product in productList">
+            <ProductItem v-bind:product="product" v-on:add-product="$emit('add-product', product.id)"/>
         </div>
     </div>
 </template>
 
 <script>
-    import CategoryItem from '../components/CategoryItem'
+    import ProductItem from "../components/ProductItem"
 
     export default {
-        name: "Categories",
+        name: "ProductList",
         components: {
-            CategoryItem
+            ProductItem
         },
-        props: ["categories"]
+        props: ["productList"]
     }
 </script>
 
 <style scoped>
-    .stock_container {
+    .product_container {
         display: flex;
         flex-direction: column;
         justify-content: center;

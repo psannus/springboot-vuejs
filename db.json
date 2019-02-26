@@ -26,5 +26,34 @@
       "id": 3,
       "name": "Potatoes"
     }
+  ],
+  "productList": [
+    {
+      "id": 1,
+      "image": "https://s3-eu-west-1.amazonaws.com/balticsimages/images/180x220/d1fa5bbb4fcde4bc32b9451d3d1fa253.png",
+      "name": "Kiivi karbis",
+      "shelf": "Puu Ja Juurviljad / Kiivid",
+      "amount": "0.500kg",
+      "price": "1.49",
+      "ean": "7340011428497"
+    },
+    {
+      "id": 2,
+      "image": "https://s3-eu-west-1.amazonaws.com/balticsimages/images/180x220/c8c1ddcd403321d1de63c6373b6ed2d6.png",
+      "name": "Avokaado Ready to Eat",
+      "shelf": "Puu Ja Juurviljad / Avokaadod",
+      "amount": "0.250kg",
+      "price": "2.29",
+      "ean": "4740669000602"
+    },
+    {
+      "id": 3,
+      "image": "https://s3-eu-west-1.amazonaws.com/balticsimages/images/180x220/0f12c3f47293b56426257ba6ba230581.png",
+      "name": "X-tra avokaado",
+      "shelf": "Puu Ja Juurviljad / Avokaadod",
+      "amount": "0.800kg",
+      "price": "3.99",
+      "ean": "7340011428497"
+    }
   ]
 }
