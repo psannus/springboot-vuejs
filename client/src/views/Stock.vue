@@ -22,7 +22,9 @@
         },
         methods: {
             selectCategory(id) {
-                this.value = this.categories.filter(cat => cat.id === id)
+                this.value = this.categories.filter(cat => cat.id === id);
+                axios.get('http://my-json-server.typicode.com/psannus/springboot-vuejs/subcategories')
+                    .then(res => this.categories = res.data)
             },
             addProduct() {
                 axios.get('http://my-json-server.typicode.com/psannus/springboot-vuejs/categories')

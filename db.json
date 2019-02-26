@@ -2,15 +2,29 @@
   "categories": [
     {
       "id": 1,
-      "name": "Meat/animal products"
+      "name": "Fruits and vegetables"
     },
     {
       "id": 2,
-      "name": "Dairy"
+      "name": "Meat"
     },
     {
       "id": 3,
-      "name": "Vegetable/Fruit"
+      "name": "Fish"
+    }
+  ],
+  "subcategories": [
+    {
+      "id": 1,
+      "name": "Fruit"
+    },
+    {
+      "id": 2,
+      "name": "Vegetables"
+    },
+    {
+      "id": 3,
+      "name": "Potatoes"
     }
   ]
 }
