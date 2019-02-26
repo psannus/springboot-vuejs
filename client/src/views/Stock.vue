@@ -25,18 +25,17 @@
             AddProduct,
             Navbar,
         },
+        mounted() {
+            axios.get('http://localhost:9000/products-mock')
+                .then(res => {
+                    this.categories = res.data.categories;
+                    this.productList = res.data.productlist;
+                });
+        },
         methods: {
             selectCategory(id) {
                 this.depth++;
-                if (this.depth === 1) {
-                    //get subcategories of previous choice
-                    axios.get('http://my-json-server.typicode.com/psannus/springboot-vuejs/subcategories')
-                        .then(res => this.categories = res.data)
-                }
                 if (this.depth === 2) {
-                    //make final choice and load product list
-                    axios.get('http://my-json-server.typicode.com/psannus/springboot-vuejs/productList')
-                        .then(res => this.productList = res.data);
                     this.categoriesOpen = true;
                     this.productOpen = true;
                     this.categories = [];
@@ -44,8 +43,6 @@
                 }
             },
             showCategories() {
-                axios.get('http://my-json-server.typicode.com/psannus/springboot-vuejs/categories')
-                    .then(res => this.categories = res.data);
                 this.categoriesOpen = !this.categoriesOpen;
                 this.productOpen = false;
                 this.depth = 0;
