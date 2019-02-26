@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <button v-on:click="$emit('show-cat')" class="circle"></button>
+    <div class="button-holder">
+        <button v-on:click="$emit('show-cat')" class="circle">+</button>
     </div>
 </template>
 
@@ -21,5 +21,13 @@
         position: relative;
         cursor: pointer;
         border: 0;
+    }
+
+    .button-holder {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        bottom: 4em;
     }
 </style>
