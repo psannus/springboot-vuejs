@@ -9,7 +9,9 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.stream.Stream;
 
 @SpringBootApplication
@@ -21,13 +23,17 @@ public class SpringApplication {
 
     // Bootstrap some test data into the in-memory database
     @Bean
-    ApplicationRunner init(TodoRepository repository) {
+    ApplicationRunner init(ProductsRepository repository) {
         return args -> {
+            Products products = new Products();
+            List<Product> list_products = new ArrayList<>();
             Stream.of("Buy milk", "Eat pizza", "Write tutorial", "Study Vue.js", "Go kayaking").forEach(name -> {
-                Todo todo = new Todo();
-                todo.setTitle(name);
-                repository.save(todo);
+                Product p = new Product();
+                p.setName(name);
+                list_products.add(p);
             });
+            products.setProductList(list_products);
+            repository.save(products);
             repository.findAll().forEach(System.out::println);
         };
     }

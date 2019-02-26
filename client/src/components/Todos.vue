@@ -8,35 +8,35 @@
       </div>
       <div v-else>
         <header class="header">
-          <input class="new-todo"
-                 autofocus autocomplete="off"
-                 :placeholder="this.inputPlaceholder"
-                 v-model="newTodo"
-                 @keyup.enter="addTodo">
+            <input class="new-products"
+                   autofocus autocomplete="off"
+                   :placeholder="this.inputPlaceholder"
+                   v-model="newTodo"
+                   @keyup.enter="addTodo">
         </header>
         <section class="main" v-show="todos.length" v-cloak>
           <input class="toggle-all" type="checkbox" v-model="allDone">
-          <ul class="todo-list">
-            <li v-for="todo in filteredTodos"
-                class="todo"
-                :key="todo.id"
-                :class="{ completed: todo.completed, editing: todo == editedTodo }">
+            <ul class="products-list">
+                <li v-for="products in filteredTodos"
+                    class="products"
+                    :key="products.id"
+                    :class="{ completed: products.completed, editing: products == editedTodo }">
               <div class="view">
-                <input class="toggle" type="checkbox" v-model="todo.completed" @change="completeTodo(todo)">
-                <label @dblclick="editTodo(todo)">{{ todo.title }}</label>
-                <button class="destroy" @click="removeTodo(todo)"></button>
+                  <input class="toggle" type="checkbox" v-model="products.completed" @change="completeTodo(products)">
+                  <label @dblclick="editTodo(products)">{{ products.title }}</label>
+                  <button class="destroy" @click="removeTodo(products)"></button>
               </div>
               <input class="edit" type="text"
-                     v-model="todo.title"
-                     v-todo-focus="todo == editedTodo"
-                     @blur="doneEdit(todo)"
-                     @keyup.enter="doneEdit(todo)"
-                     @keyup.esc="cancelEdit(todo)">
+                     v-model="products.title"
+                     v-products-focus="products == editedTodo"
+                     @blur="doneEdit(products)"
+                     @keyup.enter="doneEdit(products)"
+                     @keyup.esc="cancelEdit(products)">
             </li>
           </ul>
         </section>
         <footer class="footer" v-show="todos.length" v-cloak>
-          <span class="todo-count">
+          <span class="products-count">
             <strong>{{ remaining }}</strong> {{ remaining | pluralize }} left
           </span>
           <ul class="filters">
@@ -57,21 +57,21 @@
 </template>
 
 <script>
-  import api from '../Api';
+    import api from '../Api';
 
-  // visibility filters
+    // visibility filters
   let filters = {
     all: function (todos) {
       return todos
     },
     active: function (todos) {
-      return todos.filter(function (todo) {
-        return !todo.completed
+        return todos.filter(function (products) {
+            return !products.completed
       })
     },
     completed: function (todos) {
-      return todos.filter(function (todo) {
-        return todo.completed
+        return todos.filter(function (products) {
+            return products.completed
       })
     }
   }
@@ -122,8 +122,8 @@
           return this.remaining === 0
         },
         set: function (value) {
-          this.todos.forEach(function (todo) {
-            todo.completed = value
+            this.todos.forEach(function (products) {
+                products.completed = value
           })
         }
       },
@@ -160,7 +160,7 @@
           })
         }).catch((error) => {
           this.$log.debug(error);
-          this.error = "Failed to add todo"
+            this.error = "Failed to add products"
         });
 
         this.newTodo = ''
@@ -170,53 +170,53 @@
         this.visibility = vis
       },
 
-      completeTodo (todo) {
-        api.updateForId(todo.id, todo.title, todo.completed).then((response) => {
+        completeTodo(products) {
+            api.updateForId(products.id, products.title, products.completed).then((response) => {
           this.$log.info("Item updated:", response.data);
         }).catch((error) => {
           this.$log.debug(error)
-          todo.completed = !todo.completed
-          this.error = "Failed to update todo"
+                products.completed = !products.completed
+                this.error = "Failed to update products"
         });
       },
-      removeTodo: function (todo) { // notice NOT using "=>" syntax
-        api.removeForId(todo.id).then(() => { // notice AM using "=>" syntax
-          this.$log.debug("Item removed:", todo);
-          this.todos.splice(this.todos.indexOf(todo), 1)
+        removeTodo: function (products) { // notice NOT using "=>" syntax
+            api.removeForId(products.id).then(() => { // notice AM using "=>" syntax
+                this.$log.debug("Item removed:", products);
+                this.todos.splice(this.todos.indexOf(products), 1)
         }).catch((error) => {
           this.$log.debug(error);
-          this.error = "Failed to remove todo"
+                this.error = "Failed to remove products"
         });
       },
 
-      editTodo: function (todo) {
-        this.beforeEditCache = todo.title
-        this.editedTodo = todo
+        editTodo: function (products) {
+            this.beforeEditCache = products.title
+            this.editedTodo = products
       },
 
-      doneEdit: function (todo) {
+        doneEdit: function (products) {
         if (!this.editedTodo) {
           return
         }
-        this.$log.info("Item updated:", todo);
-        api.updateForId(todo.id, todo.title.trim(), todo.completed).then((response) => {
+            this.$log.info("Item updated:", products);
+            api.updateForId(products.id, products.title.trim(), products.completed).then((response) => {
           this.$log.info("Item updated:", response.data);
           this.editedTodo = null
-          todo.title = todo.title.trim()
+                products.title = products.title.trim()
         }).catch((error) => {
           this.$log.debug(error)
-          this.cancelEdit(todo)
-          this.error = "Failed to update todo"
+                this.cancelEdit(products)
+                this.error = "Failed to update products"
         });
 
-        if (!todo.title) {
-          this.removeTodo(todo)
+            if (!products.title) {
+                this.removeTodo(products)
         }
       },
 
-      cancelEdit: function (todo) {
+        cancelEdit: function (products) {
         this.editedTodo = null
-        todo.title = this.beforeEditCache
+            products.title = this.beforeEditCache
       },
 
       removeCompleted: function () {
@@ -233,7 +233,7 @@
     // before focusing on the input field.
     // http://vuejs.org/guide/custom-directive.html
     directives: {
-      'todo-focus': function (el, binding) {
+        'products-focus': function (el, binding) {
         if (binding.value) {
           el.focus()
         }
