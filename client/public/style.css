@@ -1,5 +1,5 @@
 /* Make the page size responsive */
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 360px) {
     :root {
         font-size: calc(10px + (24 - 10) * (100vw - 480px) / (2000 - 480));
     }
@@ -12,9 +12,9 @@
 }
 
 /* Place the navbar at the bottom of the page, and make it stick */
+
 body {
     margin: 0;
-    display: flex;
     justify-content: center;
     align-items: center;
     font-family: sans-serif;
