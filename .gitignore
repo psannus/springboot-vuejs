@@ -3,7 +3,9 @@
 !gradle/wrapper/gradle-wrapper.jar
 
 ### IntelliJ IDEA ###
-.idea
+.idea/misc.xml
+.idea/workspace.xml
+
 /out/
 
 /client/node_modules/
