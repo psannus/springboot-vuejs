@@ -27,7 +27,7 @@
       "name": "Potatoes"
     }
   ],
-  "productList": [
+  "productlist": [
     {
       "id": 1,
       "image": "https://s3-eu-west-1.amazonaws.com/balticsimages/images/180x220/d1fa5bbb4fcde4bc32b9451d3d1fa253.png",
