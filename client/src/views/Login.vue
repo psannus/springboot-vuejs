@@ -3,10 +3,10 @@
         <div class="login-page">
             <div class="form">
                 <form class="login-form">
-                    <input type="text" placeholder="username">
-                    <input type="password" placeholder="password">
+                    <input type="text" placeholder="username" name="username" v-model="input.username">
+                    <input type="password" placeholder="password" name="password" v-model="input.password">
                 </form>
-                <router-link class="clickable-button" to="/home">Login</router-link>
+                <button class="clickable-button" v-on:click="login()">Login</button>
                 <p class="message">Not registed?</p>
                 <router-link class="button-register" to="/Register">Create an account</router-link>
             </div>
@@ -15,6 +15,32 @@
 </template>
 
 <script>
+    export default {
+        name: "Login",
+        data() {
+            return {
+                input: {
+                    username: "",
+                    password: ""
+                }
+            }
+        },
+        methods: {
+            login() {
+                if (this.input.username !== "" && this.input.password !== "") {
+                    if (this.input.username === this.$parent.mockAccount.username && this.input.password === this.$parent.mockAccount.password) {
+                        this.$emit("authenticated", true);
+                        this.$router.replace({name: "home"})
+                    } else {
+                        alert("The username and / or password is incorrect")
+                    }
+                } else {
+                    alert("A username and password must be present")
+                }
+
+            }
+        }
+    }
 
 </script>
 
@@ -74,7 +100,7 @@
     }
 
     .clickable-button {
-        margin-top: 20em;
+        border: none;
         background-color: #4CAF50;
         text-decoration: none;
         padding: 10px 30px;

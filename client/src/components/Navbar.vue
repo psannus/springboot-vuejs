@@ -83,8 +83,8 @@
     }
 
     .logo {
-        width: 100%;
         height: 100%;
+        width: 6em;
         object-fit: contain;
         margin: auto;
     }

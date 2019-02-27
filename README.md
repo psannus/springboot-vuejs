@@ -13,4 +13,10 @@
     localhost:8080
 ```
 
+* demo
+```
+username: user
+password: password
+```
+
 enjoy

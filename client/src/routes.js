@@ -9,10 +9,12 @@ export default [
     // Redirects to /route-one as the default route.
     {
         path: '/',
+        name: "landing",
         component: LandingPage
     },
     {
         path: '/home',
+        name: "home",
         component: Home,
         //// Children is just another route definition of sub-routes.
         //children: [
@@ -33,6 +35,7 @@ export default [
     },
     {
         path: '/login',
+        name: "login",
         component: Login
     },
     {

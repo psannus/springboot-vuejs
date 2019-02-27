@@ -1,12 +1,31 @@
 <template>
     <div id="app">
-        <router-view/>
+        <router-view @authenticated="setAuthenticated"/>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'app'
+        name: 'app',
+        data() {
+            return {
+                authenticated: false,
+                mockAccount: {
+                    username: "user",
+                    password: "password"
+                }
+            }
+        },
+        mounted() {
+            if (!localStorage.authenticated) {
+                this.$router.replace({name: "landing"})
+            }
+        },
+        methods: {
+            setAuthenticated(status) {
+                this.authenticated = status;
+            },
+        }
     }
 </script>
 
