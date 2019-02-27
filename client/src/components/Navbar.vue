@@ -1,7 +1,7 @@
 <template>
     <div class="nav_container">
         <div class="topnav">
-            <router-link to="/">
+            <router-link to="/home">
                 <img class="logo" alt="Trackify" src="../assets/logo.png">
             </router-link>
         </div>
