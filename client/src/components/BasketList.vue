@@ -26,7 +26,6 @@
         align-items: center;
         margin: 0.5em auto;
         width: 100%;
-        min-height: 90vh;
         height: auto;
         position: relative;
         padding-bottom: 7.5rem;
