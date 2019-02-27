@@ -20,3 +20,5 @@ password: password
 ```
 
 enjoy
+
+https://docs.google.com/presentation/d/14qFf-oROAC3PahpZsOS3Bwr-GzZsv-0mmqEaZ7BnHqM/edit?usp=sharing
