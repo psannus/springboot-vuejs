@@ -26,9 +26,10 @@
         align-items: center;
         margin: 0.5em auto;
         width: 100%;
-        height: 30em;
+        min-height: 90vh;
+        height: auto;
         position: relative;
-        overflow: auto;
+        padding-bottom: 7.5rem;
     }
 
     .save-button {
