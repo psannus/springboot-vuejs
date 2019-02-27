@@ -59,7 +59,7 @@
 
     /* Add a color to the active/current link */
     .navbar a.active {
-        background-color: #4CAF50;
+        background-color: #2CC3B3;
         color: white;
     }
 

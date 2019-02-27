@@ -1,6 +1,9 @@
 <template>
     <div>
         <Navbar activeTab="Stock"/>
+        <Basket v-on:show-basket="showBasket"/>
+        <BasketList v-if=basketOpen v-bind:basketList="basketList" v-on:del-product="deleteProduct"
+                    v-on:save-list="saveBasketList"/>
         <Categories v-if=categoriesOpen v-bind:categories="categories"
                     v-on:sel-cat="selectCategory"/>
         <ProductList v-if=productOpen v-bind:productList="productList"
@@ -15,14 +18,18 @@
     import Categories from "../components/Categories";
     import AddProduct from "../components/AddProduct"
     import ProductList from "../components/ProductList";
+    import Basket from "../components/Basket"
+    import BasketList from "../components/BasketList"
     import axios from "axios";
 
     export default {
         name: 'Stock',
         components: {
             ProductList,
+            BasketList,
             Categories,
             AddProduct,
+            Basket,
             Navbar,
         },
         mounted() {
@@ -34,19 +41,45 @@
                 });
         },
         methods: {
-            selectCategory(id) {
+            showBasket() {
+                this.depth = 0;
+                if (this.basketOpen) this.basketOpen = false;
+                else {
+                    this.categoriesOpen = false;
+                    this.productOpen = false;
+                    this.basketOpen = true;
+                }
+            },
+            deleteProduct(id) {
+                let found = false;
+                this.basketList = this.basketList.filter(product => {
+                    if (product.id === id && !found) {
+                        found = true;
+                        return false;
+                    } else {
+                        return true;
+                    }
+
+                })
+            },
+            saveBasketList() {
+                //TO-DO
+                //Some backend magic to save the basketList to stockpile
+            },
+            selectCategory() {
                 this.depth++;
                 if (this.depth === 1) {
-                    this.value = this.categories.filter(cat => cat.id === id);
+                    //this.value = this.categories.filter(cat => cat.id === id);
                     this.categories = this.allproducts.subcategories
                 }
                 else if (this.depth === 2) {
                     this.categoriesOpen = false;
                     this.productOpen = true;
-                    this.value = this.categories.filter(cat => cat.id === id);
+                    //this.value = this.categories.filter(cat => cat.id === id);
                 }
             },
             showCategories() {
+                this.basketOpen = false;
                 if (this.depth > 0) {
                     this.depth = 0;
                     this.value = "none";
@@ -59,7 +92,7 @@
                 }
             },
             addProduct(id) {
-                this.value = this.productList.filter(product => product.id === id);
+                this.basketList.push(this.productList.filter(product => product.id === id)[0]);
             }
         },
         data() {
@@ -68,6 +101,8 @@
                 value: "none",
                 productOpen: false,
                 categoriesOpen: false,
+                basketOpen: false,
+                basketList: [],
                 allproducts: {},
                 categories: [],
                 productList: []

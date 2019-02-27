@@ -1,21 +1,21 @@
 <template>
     <div class="product-box">
-        <img class="product-image" :src="product.image" alt="NONE">
+        <img class="product-image" :src="basketItem.image" alt="NONE">
         <div class="info-display">
-            <h1>{{product.name}}</h1>
-            <h2>Amount: {{product.amount}}</h2>
-            <h2>Shelf: {{product.shelf}}</h2>
-            <h2>{{product.price}}€</h2>
-            <h4>EAN: {{product.ean}}</h4>
+            <h1>{{basketItem.name}}</h1>
+            <h2>Amount: {{basketItem.amount}}</h2>
+            <h2>Shelf: {{basketItem.shelf}}</h2>
+            <h2>{{basketItem.price}}€</h2>
+            <h4>EAN: {{basketItem.ean}}</h4>
         </div>
-        <button v-on:click="$emit('add-product')" class="circle">+</button>
+        <button v-on:click="$emit('del-product')" class="circle">-</button>
     </div>
 </template>
 
 <script>
     export default {
-        name: "ProductItem",
-        props: ["product"]
+        name: "BasketItem",
+        props: ["basketItem"]
     }
 </script>
 
@@ -42,6 +42,7 @@
         font-style: italic;
         font-size: 0.50em;
     }
+
     .product-box {
         display: flex;
         justify-content: space-around;

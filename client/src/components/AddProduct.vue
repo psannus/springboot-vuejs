@@ -12,7 +12,7 @@
 
 <style scoped>
     .circle {
-        background-color: #d23f31;
+        background-color: #ddd;
         border-radius: 999em;
         width: 56px;
         height: 56px;
@@ -21,6 +21,10 @@
         position: relative;
         cursor: pointer;
         border: 0;
+    }
+
+    .circle:hover {
+        background-color: #2CC3B5;
     }
 
     .button-holder {

@@ -22,11 +22,11 @@
     .product_container {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        margin: 2.3em auto;
-        width: 80%;
-        height: 500px;
+        margin: 0.5em auto;
+        width: 100%;
+        height: 30em;
         position: relative;
+        overflow: auto;
     }
 </style>

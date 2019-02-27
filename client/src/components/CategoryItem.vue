@@ -11,9 +11,11 @@
 
 <style scoped>
     .product {
+        width: 10em;
         font-size: 1.5em;
-        background: #4285F4;
+        background: #ddd;
         margin: 0.5em;
+        padding: 0.25em;
         border-radius: 2px;
         border: 0;
         transition: .2s ease-out;
@@ -22,7 +24,7 @@
     }
 
     .product:hover {
-        color: #fff;
+        background-color: #2CC3B5;
         box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
     }
 

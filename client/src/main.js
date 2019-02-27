@@ -5,7 +5,7 @@ import VueLogger from 'vuejs-logger';
 // Our SPA routes
 import Routes from './routes.js';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 const options = {
     isEnabled: true,
