@@ -3,7 +3,7 @@
         <Navbar activeTab="Home"/>
         <div class="home_container">
             <div id="nav">
-                <router-link v-if="$parent.authenticated" to="/">Logout</router-link>
+                <router-link v-if="$parent.authenticated" to="/">Log out</router-link>
             </div>
             <h1>
                 Welcome to a beautiful Vue app!
