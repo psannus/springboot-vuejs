@@ -7,7 +7,7 @@
                     <input type="password" placeholder="password">
                     <input type="email" placeholder="email address">
                     <router-link class="clickable-button" to="/login">Create</router-link>
-                    <p class="message">Already registed?</p>
+                    <p class="message">Already registered?</p>
                     <router-link class="button-login" to="/login">Sign in</router-link>
                 </form>
             </div>

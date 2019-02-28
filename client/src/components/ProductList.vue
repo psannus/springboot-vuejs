@@ -25,8 +25,8 @@
         align-items: center;
         margin: 0.5em auto;
         width: 100%;
-        height: 30em;
+        height: auto;
         position: relative;
-        overflow: auto;
+        padding-bottom: 7.5rem;
     }
 </style>

@@ -7,7 +7,7 @@
                     <input type="password" placeholder="password" name="password" v-model="input.password">
                     <button class="clickable-button" v-on:click="login()">Login</button>
                 </form>
-                <p class="message">Not registed?</p>
+                <p class="message">Not registered?</p>
                 <router-link class="button-register" to="/Register">Create an account</router-link>
             </div>
         </div>

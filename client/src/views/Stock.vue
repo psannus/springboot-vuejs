@@ -43,6 +43,7 @@
         methods: {
             showBasket() {
                 this.depth = 0;
+                this.categories = this.allproducts.categories;
                 if (this.basketOpen) this.basketOpen = false;
                 else {
                     this.categoriesOpen = false;
