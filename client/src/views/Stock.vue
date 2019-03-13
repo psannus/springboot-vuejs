@@ -33,10 +33,18 @@
             Navbar,
         },
         mounted() {
+            axios.post('http://localhost:9000/categories-update', {
+                id: "0",
+                url: " https://www.prismamarket.ee/products/selection",
+                name: "init"
+            });
+            axios.get('http://localhost:9000/categories')
+                .then(res => {
+                    this.categories = res.data.categoryList;
+                });
             axios.get('http://localhost:9000/products-mock')
                 .then(res => {
                     this.allproducts = res.data;
-                    this.categories = res.data.categories;
                     this.productList = res.data.productlist;
                 });
         },
@@ -84,7 +92,7 @@
                 if (this.depth > 0) {
                     this.depth = 0;
                     this.value = "none";
-                    this.categories = this.allproducts.categories;
+                    //this.categories = this.allproducts.categories;
                     this.categoriesOpen = false;
                     this.productOpen = false;
                 } else {
