@@ -1,4 +1,4 @@
-package com.hrp.springapp;
+package com.hrp.springapp.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

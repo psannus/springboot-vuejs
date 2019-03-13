@@ -1,5 +1,6 @@
-package com.hrp.springapp;
+package com.hrp.springapp.config;
 
+import com.hrp.springapp.model.Products;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.stereotype.Component;

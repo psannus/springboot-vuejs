@@ -1,5 +1,6 @@
 package com.hrp.springapp;
 
+import com.hrp.springapp.model.Products;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

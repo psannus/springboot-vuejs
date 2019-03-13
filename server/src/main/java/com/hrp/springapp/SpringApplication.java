@@ -1,5 +1,7 @@
 package com.hrp.springapp;
 
+import com.hrp.springapp.model.Product;
+import com.hrp.springapp.model.Products;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
