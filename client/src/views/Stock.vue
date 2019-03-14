@@ -33,17 +33,12 @@
             Navbar,
         },
         mounted() {
-            axios.post('http://localhost:9000/categories-update', {
+            axios.post('http://localhost:9000/categories-get', {
                 id: "0",
                 url: " https://www.prismamarket.ee/products/selection",
                 name: "init"
             }).then(res => {
-                if (res !== null) {
-                    axios.get('http://localhost:9000/categories')
-                        .then(res => {
-                            this.allproducts = res.data[0].categoryList;
-                        });
-                }
+                this.allproducts = res.data.categoryList;
             });
             axios.get('http://localhost:9000/products-mock')
                 .then(res => {
@@ -53,7 +48,7 @@
         methods: {
             showBasket() {
                 this.depth = 0;
-                this.categories = this.allproducts.categories;
+                this.categories = this.allproducts;
                 if (this.basketOpen) this.basketOpen = false;
                 else {
                     this.categoriesOpen = false;
@@ -80,14 +75,9 @@
             selectCategory(category) {
                 this.depth++;
                 if (this.depth === 1) {
-                    axios.post('http://localhost:9000/categories-update', category)
+                    axios.post('http://localhost:9000/categories-get', category)
                         .then(res => {
-                            if (res !== null) {
-                                axios.get('http://localhost:9000/categories')
-                                    .then(res => {
-                                        this.categories = res.data[0].categoryList;
-                                    });
-                            }
+                            this.categories = res.data.categoryList;
                         });
 
                 } else if (this.depth === 2) {

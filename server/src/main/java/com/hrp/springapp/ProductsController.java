@@ -6,7 +6,6 @@ import com.hrp.springapp.model.Products;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -42,23 +41,35 @@ public class ProductsController {
         String url = category.getUrl();
         Products products = new Products();
         Document doc = Jsoup.connect(url).timeout(10000).validateTLSCertificates(false).get();
-        Elements elements = doc.getElementsByClass("js-link-item");
-        Long id = 0L;
-        for (Element element : elements) {
-            id++;
-            Product elementProduct = new Product();
-            String elementUrl = element.attr("abs:href");
-            Document elementDoc = Jsoup.connect(elementUrl).timeout(10000).validateTLSCertificates(false).get();
-            elementProduct.setName(elementDoc.getElementById("product-name").text());
-            elementProduct.setAmount(elementDoc.getElementsByClass("js-quantity").text());
-            elementProduct.setEan(elementDoc.select("span[itemprop='sku']").text());
-            elementProduct.setImage(elementDoc.getElementById("product-image-zoom").absUrl("src"));
-            Elements price = elementDoc.getElementsByClass("price");
-            elementProduct.setPrice(price.first().text() + "." + price.next().text());
-            elementProduct.setId(id);
-            elementProduct.setShelf(elementDoc.getElementsByClass("aisle").first().text().split(": ")[1].split(" /")[0]);
-            products.getProductList().add(elementProduct);
-        }
+        final Long[] id = {0L};
+        doc.select("a[class='js-link-item']").eachAttr("abs:href")
+                .parallelStream()
+                .forEach(element -> {
+                    id[0]++;
+                    Product elementProduct = new Product();
+                    Element elementDoc;
+                    try {
+                        elementDoc = Jsoup.connect(element)
+                                .timeout(10000)
+                                .validateTLSCertificates(false)
+                                .get()
+                                .selectFirst("div[itemtype='http://schema.org/Product']");
+
+                        elementProduct.setImage(elementDoc.selectFirst("img[id='product-image-zoom']").absUrl("src"));
+                        Document parsedDoc = Jsoup.parse(elementDoc.selectFirst("div[class='product-info-table']").html());
+
+                        elementProduct.setName(parsedDoc.selectFirst("h1[id='product-name']").text());
+                        elementProduct.setAmount(parsedDoc.selectFirst("div[class='js-quantity']").text());
+                        elementProduct.setEan(parsedDoc.selectFirst("span[itemprop='sku']").text());
+                        elementProduct.setPrice(parsedDoc.selectFirst("span[class='whole-number ']").text() + "." + parsedDoc.selectFirst("span[class='decimal']").text());
+                        elementProduct.setId(id[0]);
+                        elementProduct.setShelf(parsedDoc.selectFirst("div[class='aisle']").text().split("Riiul: ")[1].split(" EAN")[0]);
+                        products.getProductList().add(elementProduct);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+
         return products;
     }
 
