@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,6 +19,6 @@ public class Products {
 
     @NonNull
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Product> productList;
+    private List<Product> productList = new ArrayList<>();
 
 }

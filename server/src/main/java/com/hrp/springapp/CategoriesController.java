@@ -29,6 +29,12 @@ public class CategoriesController {
         return categoriesRepository.findAll();
     }
 
+    @GetMapping("/categories-delete-all")
+    @ResponseBody
+    public void deleteAllCategories() {
+        categoriesRepository.deleteAll();
+    }
+
     @PostMapping("/categories-update")
     @ResponseBody
     public void updateCategories(@RequestBody Category category) throws IOException {

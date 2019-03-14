@@ -37,14 +37,16 @@
                 id: "0",
                 url: " https://www.prismamarket.ee/products/selection",
                 name: "init"
+            }).then(res => {
+                if (res !== null) {
+                    axios.get('http://localhost:9000/categories')
+                        .then(res => {
+                            this.allproducts = res.data[0].categoryList;
+                        });
+                }
             });
-            axios.get('http://localhost:9000/categories')
-                .then(res => {
-                    this.categories = res.data.categoryList;
-                });
             axios.get('http://localhost:9000/products-mock')
                 .then(res => {
-                    this.allproducts = res.data;
                     this.productList = res.data.productlist;
                 });
         },
@@ -75,15 +77,26 @@
                 //TO-DO
                 //Some backend magic to save the basketList to stockpile
             },
-            selectCategory() {
+            selectCategory(category) {
                 this.depth++;
                 if (this.depth === 1) {
-                    //this.value = this.categories.filter(cat => cat.id === id);
-                    this.categories = this.allproducts.subcategories
-                }
-                else if (this.depth === 2) {
-                    this.categoriesOpen = false;
-                    this.productOpen = true;
+                    axios.post('http://localhost:9000/categories-update', category)
+                        .then(res => {
+                            if (res !== null) {
+                                axios.get('http://localhost:9000/categories')
+                                    .then(res => {
+                                        this.categories = res.data[0].categoryList;
+                                    });
+                            }
+                        });
+
+                } else if (this.depth === 2) {
+                    axios.post('http://localhost:9000/products-list', category)
+                        .then(res => {
+                            this.productList = res.data.productList;
+                            this.categoriesOpen = false;
+                            this.productOpen = true;
+                        });
                     //this.value = this.categories.filter(cat => cat.id === id);
                 }
             },
@@ -92,10 +105,11 @@
                 if (this.depth > 0) {
                     this.depth = 0;
                     this.value = "none";
-                    //this.categories = this.allproducts.categories;
+                    this.categories = this.allproducts;
                     this.categoriesOpen = false;
                     this.productOpen = false;
                 } else {
+                    this.categories = this.allproducts;
                     this.categoriesOpen = !this.categoriesOpen;
                     this.productOpen = false;
                 }
@@ -112,7 +126,7 @@
                 categoriesOpen: false,
                 basketOpen: false,
                 basketList: [],
-                allproducts: {},
+                allproducts: [],
                 categories: [],
                 productList: []
             }

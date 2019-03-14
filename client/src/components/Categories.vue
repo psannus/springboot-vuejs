@@ -1,7 +1,7 @@
 <template>
     <div class="stock_container">
         <div v-bind:key="category.id" v-for="category in categories">
-            <CategoryItem v-bind:category="category" v-on:sel-cat="$emit('sel-cat', category.id)"/>
+            <CategoryItem v-bind:category="category" v-on:sel-cat="$emit('sel-cat', category)"/>
         </div>
     </div>
 </template>
@@ -22,12 +22,17 @@
     .stock_container {
         display: flex;
         flex-direction: column;
+        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         margin: 2.3em auto;
         width: 100%;
         height: 500px;
         position: relative;
+    }
+
+    .stock_container > * {
+        flex: 1 0 0;
     }
 
     .is-open {

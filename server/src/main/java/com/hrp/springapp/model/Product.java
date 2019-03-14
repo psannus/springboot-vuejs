@@ -20,6 +20,14 @@ public class Product {
     @NotNull
     private String name;
 
-    private String img;
+    private String image;
+
+    private String ean;
+
+    private String price;
+
+    private String amount;
+
+    private String shelf;
 
 }
