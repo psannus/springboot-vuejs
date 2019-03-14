@@ -20,6 +20,7 @@
     import ProductList from "../components/ProductList";
     import Basket from "../components/Basket"
     import BasketList from "../components/BasketList"
+    import axios from "axios"
 
     export default {
         name: 'Stock',
