@@ -8,8 +8,8 @@
             <RouterLink class="header-router-link" to="/login">Start tracking now</RouterLink>
         </div>
         <div class="signin-signup">
-            <RouterLink class="header-login" to="/login">Sign In</RouterLink>
-            <RouterLink class="header-register" to="/register">Register</RouterLink>
+            <RouterLink class="LandingButton" to="/login">Sign In</RouterLink>
+            <RouterLink class="LandingButton" to="/register">Register</RouterLink>
         </div>
     </div>
 </template>
@@ -62,20 +62,49 @@
         border-radius: 25px;
     }
 
+    .LandingButton {
+        margin: 10px;
+        -moz-box-shadow: inset 0 1px 0 0 #a4e271;
+        box-shadow: inset 0 1px 0 0 #a4e271;
+        background: -moz-linear-gradient(top, #4caf4f 5%, #1e9620 100%);
+        background: -webkit-linear-gradient(top, #4caf4f 5%, #1e9620 100%);
+        background: -o-linear-gradient(top, #4caf4f 5%, #1e9620 100%);
+        background: -ms-linear-gradient(top, #4caf4f 5%, #1e9620 100%);
+        background: linear-gradient(to bottom, #4caf4f 5%, #1e9620 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4caf4f', endColorstr='#1e9620', GradientType=0);
+        background-color: #4caf4f;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        display: inline-block;
+        cursor: pointer;
+        color: #000000;
+        font-size: 15px;
+        padding: 6px 24px;
+        text-decoration: none;
+    }
+
+    .LandingButton:hover {
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1e9620), color-stop(1, #4caf4f));
+        background: -moz-linear-gradient(top, #1e9620 5%, #4caf4f 100%);
+        background: -webkit-linear-gradient(top, #1e9620 5%, #4caf4f 100%);
+        background: -o-linear-gradient(top, #1e9620 5%, #4caf4f 100%);
+        background: -ms-linear-gradient(top, #1e9620 5%, #4caf4f 100%);
+        background: linear-gradient(to bottom, #1e9620 5%, #4caf4f 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e9620', endColorstr='#4caf4f', GradientType=0);
+        background-color: #1e9620;
+    }
+
+    .LandingButton:active {
+        position: relative;
+        top: 1px;
+    }
+
+
     .signin-signup {
         position: absolute;
         top: 1%;
         right: 1%;
-    }
 
-    .header-login {
-        text-decoration: none;
-        padding-right: 1em;
-        color: black;
-    }
-
-    .header-register {
-        text-decoration: none;
-        color: black;
     }
 </style>
