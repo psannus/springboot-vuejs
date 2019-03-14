@@ -25,10 +25,10 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        margin: 2.3em auto;
         width: 100%;
         height: 500px;
         position: relative;
+        margin-top: 8%;
     }
 
     .stock_container > * {

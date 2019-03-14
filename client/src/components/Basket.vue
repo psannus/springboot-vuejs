@@ -18,11 +18,12 @@
     .icon-cart {
         width: 55px;
         height: 55px;
-        position: relative;
         overflow: hidden;
-        margin-left: 25px;
-        margin-bottom: 25px;
+        top: 10%;
+        right: 2%;
+        position: fixed;
         --main-color: #ddd;
+
     }
 
     .icon-cart:hover {

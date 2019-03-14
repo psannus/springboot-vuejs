@@ -1,9 +1,7 @@
 <template>
     <div class="nav_container">
         <div class="topnav">
-            <router-link to="/home">
-                <img class="logo" alt="Trackify" src="../assets/logo.png">
-            </router-link>
+            <router-link to="/home"><img class="logo" alt="Trackify" src="../assets/logo.png"></router-link>
         </div>
         <div class="navbar">
             <router-link to="/stock" :class="{ active: activeTab === 'Stock'}">Stock</router-link>
@@ -49,6 +47,7 @@
         padding: 1rem 0.75rem;
         text-decoration: none;
         font-size: 0.75rem;
+        top: 0;
     }
 
     /* Change the color of links on hover */
@@ -71,6 +70,8 @@
         overflow: hidden;
         display: inline-flex;
         justify-content: center;
+        position: fixed;
+        top: 0;
     }
 
     /* Style the links inside the navigation bar */

@@ -23,8 +23,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 0.5em auto;
-        width: 100%;
+        margin: 8% auto;
+        width: 80%;
         height: auto;
         position: relative;
         padding-bottom: 7.5rem;
