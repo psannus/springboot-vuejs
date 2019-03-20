@@ -29,13 +29,16 @@ public class SpringApplication {
         return args -> {
             Products products = new Products();
             List<Product> list_products = new ArrayList<>();
+            final Long[] id = {0L};
             Stream.of("Buy milk", "Eat pizza", "Write tutorial", "Study Vue.js", "Go kayaking").forEach(name -> {
+                id[0]++;
                 Product p = new Product();
                 p.setName(name);
+                p.setId(id[0]);
                 list_products.add(p);
             });
             products.setProductList(list_products);
-            repository.save(products);
+            //repository.save(products);
             repository.findAll().forEach(System.out::println);
         };
     }

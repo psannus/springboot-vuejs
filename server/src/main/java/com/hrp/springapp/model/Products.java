@@ -4,7 +4,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +21,8 @@ public class Products {
     @Id
     @GeneratedValue
     private Long id;
+
+    private Long userId = 1L;
 
     @NonNull
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

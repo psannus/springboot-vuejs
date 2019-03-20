@@ -3,7 +3,7 @@
         <div v-bind:key="basketItem.id" v-for="basketItem in basketList">
             <BasketItem v-bind:basketItem="basketItem" v-on:del-product="$emit('del-product', basketItem.id)"/>
         </div>
-        <button class="save-button" v-on:click="$emit('save-list')">Save Products</button>
+        <button v-if=showButton class="save-button" v-on:click="$emit('save-list')">Save Products</button>
     </div>
 </template>
 
@@ -15,7 +15,7 @@
         components: {
             BasketItem
         },
-        props: ["basketList"]
+        props: ["basketList", "showButton"],
     }
 </script>
 

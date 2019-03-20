@@ -2,7 +2,8 @@
     <div>
         <Navbar activeTab="Home"/>
         <Basket v-on:show-basket="showBasket"/>
-        <BasketList v-if=basketOpen v-bind:basketList="basketList" v-on:del-product="deleteProduct"
+        <BasketList v-if=basketOpen v-bind:showButton="showButton" v-bind:basketList="basketList"
+                    v-on:del-product="deleteProduct"
                     v-on:save-list="saveBasketList"/>
         <Categories v-if=categoriesOpen v-bind:categories="categories"
                     v-on:sel-cat="selectCategory"/>
@@ -73,6 +74,13 @@
             saveBasketList() {
                 //TO-DO
                 //Some backend magic to save the basketList to stockpile
+                axios.post('http://localhost:9000/basket-save', {
+                    id: "1",
+                    productList: this.basketList
+                })
+                    .then(res => {
+                        if (res !== null) this.basketList = []
+                    })
             },
             selectCategory(category) {
                 this.depth++;
@@ -106,8 +114,8 @@
                     this.productOpen = false;
                 }
             },
-            addProduct(id) {
-                this.basketList.push(this.productList.filter(product => product.id === id)[0]);
+            addProduct(ean) {
+                this.basketList.push(this.productList.filter(product => product.ean === ean)[0]);
             }
         },
         data() {
@@ -117,6 +125,7 @@
                 productOpen: false,
                 categoriesOpen: false,
                 basketOpen: false,
+                showButton: true,
                 basketList: [],
                 allproducts: [],
                 categories: [],
