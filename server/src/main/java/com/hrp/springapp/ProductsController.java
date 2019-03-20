@@ -42,7 +42,7 @@ public class ProductsController {
 
     @RequestMapping("/basket-remove")
     @ResponseBody
-    public Products removeProduct(@RequestBody Product product) {
+    public void removeProduct(@RequestBody Product product) {
         Optional<Products> found = Optional.empty();
         for (Products p : productsRepository.findAll()) {
             if (p.getProductList().contains(product)) {
@@ -55,9 +55,7 @@ public class ProductsController {
             productsRepository.delete(tempP);
             tempP.getProductList().remove(product);
             productsRepository.save(tempP);
-            return tempP;
         }
-        return null;
     }
 
     @RequestMapping("/basket-list")

@@ -29,19 +29,27 @@
                     res.data.forEach(i => {
                         this.basketList = this.basketList.concat(i.productList);
                     });
-                    this.value = this.basketList;
                     this.basketOpen = true;
                 });
         },
         methods: {
             deleteProduct(id) {
-                this.value = id;
-                this.basketOpen = false;
-                axios.post('http://localhost:9000/basket-remove').then(res => {
-                    this.basketList = res.data.productList;
-
+                let remove = this.basketList.find(product => product.id === id);
+                axios.post('http://localhost:9000/basket-remove', remove).then(res => {
+                    if (res !== null) this.value = "";
+                    axios.get('http://localhost:9000/basket-list', {
+                        params: {
+                            id: 1
+                        }
+                    })
+                        .then(res => {
+                            this.basketList = [];
+                            res.data.forEach(i => {
+                                this.basketList = this.basketList.concat(i.productList);
+                            });
+                            this.basketOpen = true;
+                        });
                 });
-                this.basketOpen = true;
             },
         },
         data() {
