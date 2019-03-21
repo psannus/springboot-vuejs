@@ -1,7 +1,8 @@
-package com.hrp.springapp;
+package com.hrp.springapp.controller;
 
 import com.hrp.springapp.model.Categories;
 import com.hrp.springapp.model.Category;
+import com.hrp.springapp.repository.CategoriesRepository;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;

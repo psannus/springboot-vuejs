@@ -1,4 +1,4 @@
-package com.hrp.springapp;
+package com.hrp.springapp.repository;
 
 import com.hrp.springapp.model.Categories;
 import org.springframework.data.jpa.repository.JpaRepository;

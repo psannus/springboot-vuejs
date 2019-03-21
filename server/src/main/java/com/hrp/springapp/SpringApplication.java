@@ -1,8 +1,5 @@
 package com.hrp.springapp;
 
-import com.hrp.springapp.model.Product;
-import com.hrp.springapp.model.Products;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -11,10 +8,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
-import java.util.stream.Stream;
 
 @SpringBootApplication
 public class SpringApplication {
@@ -24,24 +18,24 @@ public class SpringApplication {
     }
 
     // Bootstrap some test data into the in-memory database
-    @Bean
-    ApplicationRunner init(ProductsRepository repository) {
-        return args -> {
-            Products products = new Products();
-            List<Product> list_products = new ArrayList<>();
-            final Long[] id = {0L};
-            Stream.of("Buy milk", "Eat pizza", "Write tutorial", "Study Vue.js", "Go kayaking").forEach(name -> {
-                id[0]++;
-                Product p = new Product();
-                p.setName(name);
-                p.setId(id[0]);
-                list_products.add(p);
-            });
-            products.setProductList(list_products);
-            //repository.save(products);
-            repository.findAll().forEach(System.out::println);
-        };
-    }
+    //@Bean
+    //ApplicationRunner init(ProductsRepository repository) {
+    //    return args -> {
+    //        Products products = new Products();
+    //        List<Product> list_products = new ArrayList<>();
+    //        final Long[] id = {0L};
+    //        Stream.of("Buy milk", "Eat pizza", "Write tutorial", "Study Vue.js", "Go kayaking").forEach(name -> {
+    //            id[0]++;
+    //            Product p = new Product();
+    //            p.setName(name);
+    //            p.setId(id[0]);
+    //            list_products.add(p);
+    //        });
+    //        products.setProductList(list_products);
+    //        //repository.save(products);
+    //        repository.findAll().forEach(System.out::println);
+    //    };
+    //}
 
     // Fix the CORS errors
     @Bean
@@ -50,7 +44,8 @@ public class SpringApplication {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
         // *** URL below needs to match the Vue client URL and port ***
-        config.setAllowedOrigins(Collections.singletonList("http://localhost:8080"));
+        // TODO: Set below option to http://localhost:8080 when we are finished to block all other connections
+        config.setAllowedOrigins(Collections.singletonList("*"));
         config.setAllowedMethods(Collections.singletonList("*"));
         config.setAllowedHeaders(Collections.singletonList("*"));
         source.registerCorsConfiguration("/**", config);
@@ -58,4 +53,5 @@ public class SpringApplication {
         bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
         return bean;
     }
+
 }
