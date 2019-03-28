@@ -41,7 +41,6 @@ public class CategoriesController {
         List<Category> result = new ArrayList<>();
         Document doc = Jsoup.connect(url).timeout(10000).validateTLSCertificates(false).get();
         doc.select("a[class='name js-category-item']")
-                .parallelStream()
                 .forEach(element -> {
                     Category c = new Category();
                     c.setName(element.text());
