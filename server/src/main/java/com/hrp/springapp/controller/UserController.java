@@ -56,7 +56,9 @@ public class UserController {
             Cookie jwtCookie = new Cookie("JWT", JWT);
             jwtCookie.setHttpOnly(true);
             response.addCookie(jwtCookie);
+            response.setStatus(200);
         }
+        response.setStatus(400);
     }
 
     @PostMapping("/login")

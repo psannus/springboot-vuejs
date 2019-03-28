@@ -15,6 +15,8 @@
 </template>
 
 <script>
+    import api from '../Api';
+
     export default {
         name: "Login",
         data() {
@@ -22,22 +24,26 @@
                 input: {
                     username: "",
                     password: ""
-                }
+                },
             }
         },
         methods: {
             login() {
                 if (this.input.username !== "" && this.input.password !== "") {
-                    if (this.input.username === this.$parent.mockAccount.username && this.input.password === this.$parent.mockAccount.password) {
-                        this.$emit("authenticated", true);
-                        this.$router.replace({name: "home"})
-                    } else {
-                        alert("The username and / or password is incorrect")
-                    }
+                    api.login({
+                        username: this.input.username,
+                        password: this.input.password
+                    }).then(res => {
+                        if (res.status === 200) {
+                            this.$emit("authenticated", true);
+                            this.$router.replace({name: "home"})
+                        } else {
+                            alert("The username and / or password is incorrect.")
+                        }
+                    });
                 } else {
-                    alert("A username and password must be present")
+                    alert("Username and password must be present.")
                 }
-
             }
         }
     }
