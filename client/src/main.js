@@ -5,6 +5,10 @@ import VueLogger from 'vuejs-logger';
 // Our SPA routes
 import Routes from './routes.js';
 
+import BootstrapVue from 'bootstrap-vue';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+
 Vue.config.productionTip = false;
 
 const options = {
@@ -19,6 +23,7 @@ const options = {
 
 Vue.use(VueLogger, options);
 Vue.use(VueRouter);
+Vue.use(BootstrapVue);
 
 const router = new VueRouter({
     routes: Routes,

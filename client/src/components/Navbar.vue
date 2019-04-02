@@ -3,7 +3,7 @@
         <div class="topnav">
             <router-link to="/home"><img class="logo" alt="Trackify" src="../assets/logo.png"></router-link>
         </div>
-        <div class="navbar">
+        <div class="navbar fixed-bottom" id="navbar">
             <router-link to="/stock" :class="{ active: activeTab === 'Stock'}">Stock</router-link>
             <router-link to="/home" :class="{ active: activeTab === 'Home'}">Home</router-link>
             <router-link to="/profile" :class="{ active: activeTab === 'Profile'}">Profile</router-link>
@@ -24,17 +24,16 @@
         justify-content: center;
     }
 
-    .navbar {
+    #navbar {
         z-index: 1;
         background-color: #555;
         overflow: hidden;
-        position: fixed;
-        bottom: 0;
         width: 100%;
         height: 2.25rem;
         text-align: center;
         display: inline-flex;
         justify-content: center;
+        padding: 0;
     }
 
     /* Style the links inside the navigation bar */
@@ -44,10 +43,11 @@
         color: #f2f2f2;
         text-align: center;
         align-items: center;
-        padding: 1rem 0.75rem;
         text-decoration: none;
         font-size: 0.75rem;
-        top: 0;
+        height: 100%;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
     }
 
     /* Change the color of links on hover */

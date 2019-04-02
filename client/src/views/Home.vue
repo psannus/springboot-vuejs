@@ -1,6 +1,7 @@
 <template>
     <div>
         <Navbar activeTab="Home"/>
+        <homepageBody v-if="(!basketOpen && !categoriesOpen)"></homepageBody>
         <Basket v-on:show-basket="showBasket"/>
         <BasketList v-if=basketOpen v-bind:showButton="showButton" v-bind:basketList="basketList"
                     v-on:del-product="deleteProduct"
@@ -14,6 +15,11 @@
     </div>
 </template>
 
+
+<style>
+
+</style>
+
 <script>
     import Navbar from "../components/Navbar";
     import Categories from "../components/Categories";
@@ -21,6 +27,7 @@
     import ProductList from "../components/ProductList";
     import Basket from "../components/Basket"
     import BasketList from "../components/BasketList"
+    import homepageBody from "../components/homepageBody"
     import axios from "axios"
 
     export default {
@@ -32,6 +39,7 @@
             AddProduct,
             Basket,
             Navbar,
+            homepageBody,
         },
         mounted() {
             axios.post('http://localhost:9000/categories-get', {
@@ -135,5 +143,3 @@
     }
 </script>
 
-<style>
-</style>

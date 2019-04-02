@@ -11,7 +11,8 @@
     "axios": "0.18.0",
     "vue": "^2.5.22",
     "vue-router": "^3.0.2",
-    "vuejs-logger": "1.5.3"
+    "vuejs-logger": "1.5.3",
+    "bootstrap-vue": "latest"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
