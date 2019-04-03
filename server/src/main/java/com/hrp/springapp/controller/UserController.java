@@ -2,7 +2,6 @@ package com.hrp.springapp.controller;
 
 import com.hrp.springapp.jwt.SecurityConstants;
 import com.hrp.springapp.model.User;
-import com.hrp.springapp.service.SecurityService;
 import com.hrp.springapp.service.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -12,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -26,11 +26,9 @@ public class UserController {
     @Autowired
     private PasswordEncoder bCryptPasswordEncoder;
 
-    @Autowired
-    private SecurityService securityService;
-
     @PostMapping("/registration")
-    public void registration(@RequestBody User user, HttpServletResponse response) {
+    @ResponseBody
+    public User registration(@RequestBody User user, HttpServletResponse response) {
         List<User> users = userService.findAll();
         boolean userExists = false;
         for (User u : users) {
@@ -39,10 +37,6 @@ public class UserController {
             }
         }
         if (!userExists) {
-            userService.save(user);
-
-            securityService.autoLogin(user.getUsername(), user.getPassword());
-
             String JWT = Jwts.builder()
                     .signWith(Keys.hmacShaKeyFor(SecurityConstants.JWT_SECRET.getBytes()), SignatureAlgorithm.HS512)
                     .setHeaderParam("typ", SecurityConstants.TOKEN_TYPE)
@@ -52,34 +46,36 @@ public class UserController {
                     .setExpiration(new Date(System.currentTimeMillis() + 864000000))
                     .claim("rol", user.getRole())
                     .compact();
+
+            user.setJwt(JWT);
+            userService.save(user);
 
             Cookie jwtCookie = new Cookie("JWT", JWT);
             jwtCookie.setHttpOnly(true);
             response.addCookie(jwtCookie);
             response.setStatus(200);
+            return user;
         }
         response.setStatus(400);
+        return null;
     }
 
     @PostMapping("/login")
-    public void login(@RequestBody User user, HttpServletResponse response) {
+    @ResponseBody
+    public User login(@RequestBody User user, HttpServletResponse response) {
         User dbUser = userService.findByUsername(user.getUsername());
         if (bCryptPasswordEncoder.matches(user.getPassword(), dbUser.getPassword())) {
-            securityService.autoLogin(user.getUsername(), user.getPassword());
 
-            String JWT = Jwts.builder()
-                    .signWith(Keys.hmacShaKeyFor(SecurityConstants.JWT_SECRET.getBytes()), SignatureAlgorithm.HS512)
-                    .setHeaderParam("typ", SecurityConstants.TOKEN_TYPE)
-                    .setIssuer(SecurityConstants.TOKEN_ISSUER)
-                    .setAudience(SecurityConstants.TOKEN_AUDIENCE)
-                    .setSubject(user.getUsername())
-                    .setExpiration(new Date(System.currentTimeMillis() + 864000000))
-                    .claim("rol", user.getRole())
-                    .compact();
-
-            Cookie jwtCookie = new Cookie("JWT", JWT);
+            Cookie jwtCookie = new Cookie("JWT", dbUser.getJwt());
             jwtCookie.setHttpOnly(true);
             response.addCookie(jwtCookie);
+            response.setStatus(200);
+
+            dbUser.setJwt(null);
+            dbUser.setPassword(null);
+            return dbUser;
         }
+        response.setStatus(400);
+        return null;
     }
 }

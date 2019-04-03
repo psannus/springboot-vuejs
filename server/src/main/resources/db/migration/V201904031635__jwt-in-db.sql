@@ -1,0 +1,2 @@
+ALTER TABLE users
+ADD COLUMN jwt VARCHAR(255) NOT NULL DEFAULT 'broken_user';
