@@ -1,46 +1,49 @@
 package com.hrp.springapp.jwt;
 
-import org.springframework.security.authentication.AuthenticationManager;
+import com.hrp.springapp.model.User;
+import com.hrp.springapp.service.UserService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+@Component
+public class JwtAuthenticationFilter {
 
-    private final AuthenticationManager authenticationManager;
+    private final UserService userService;
 
-    public JwtAuthenticationFilter(AuthenticationManager authenticationManager) {
-        this.authenticationManager = authenticationManager;
-
-        setFilterProcessesUrl(SecurityConstants.AUTH_LOGIN_URL);
+    public JwtAuthenticationFilter(UserService userService) {
+        this.userService = userService;
     }
 
-    @Override
     public Authentication attemptAuthentication(HttpServletRequest request,
                                                 HttpServletResponse response) throws AuthenticationException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
 
-        return authenticationManager.authenticate(authenticationToken);
+        return new UsernamePasswordAuthenticationToken(username, password);
+    }
+
+    public boolean validateToken(String jwt, Long id) {
+        User user = userService.findById(id);
+        return (user != null && jwt.equals(user.getJwt()));
     }
 
     //@Override
     //protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response,
     //                                        FilterChain filterChain, Authentication authentication) {
     //    var user = ((SecurityProperties.User) authentication.getPrincipal());
-//
+    //
     //    var roles = user.getAuthorities()
     //            .stream()
     //            .map(GrantedAuthority::getAuthority)
     //            .collect(Collectors.toList());
-//
+    //
     //    var signingKey = SecurityConstants.JWT_SECRET.getBytes();
-//
+    //
     //    response.addHeader(SecurityConstants.TOKEN_HEADER, SecurityConstants.TOKEN_PREFIX + token);
     //}
 }

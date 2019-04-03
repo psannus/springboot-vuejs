@@ -3,10 +3,12 @@
         <div class="register-page">
             <div class="form">
                 <form class="login-form">
-                    <input type="text" placeholder="name">
-                    <input type="password" placeholder="password">
+                    <input type="text" v-model="input.username" placeholder="username">
+                    <input type="password" v-model="input.password" placeholder="password">
+                    <input type="text" v-model="input.firstName" placeholder="first name">
+                    <input type="text" v-model="input.lastName" placeholder="last name">
                     <input type="email" placeholder="email address">
-                    <router-link class="clickable-button" to="/login">Create</router-link>
+                    <button class="clickable-button" v-on:click="register()">Create</button>
                     <p class="message">Already registered?</p>
                     <router-link class="button-login" to="/login">Sign in</router-link>
                 </form>
@@ -16,9 +18,45 @@
 </template>
 
 <script>
+    import api from '../Api';
+
     export default {
-        name: "Register.vue"
+        name: "Register",
+        data() {
+            return {
+                input: {
+                    username: "",
+                    password: "",
+                    firstName: "",
+                    lastName: "",
+                },
+            }
+        },
+        methods: {
+            register() {
+                // eslint-disable-next-line
+                console.log(this.input.username, this.input.password);
+                if (this.input.username !== "" && this.input.password !== "") {
+                    api.registration({
+                        username: this.input.username,
+                        password: this.input.password,
+                        firstName: this.input.firstName,
+                        lastName: this.input.lastName
+                    }).then(res => {
+                        if (res.status === 200) {
+                            this.$emit("authenticated", true);
+                            this.$router.replace(this.$route.query.redirect || '/home')
+                        } else {
+                            alert("Registration failed.")
+                        }
+                    });
+                } else {
+                    alert("Username and password must be present.")
+                }
+            }
+        }
     }
+
 </script>
 
 <style scoped>

@@ -29,8 +29,6 @@
         },
         methods: {
             login() {
-                // eslint-disable-next-line
-                console.log(this.input.username, this.input.password);
                 if (this.input.username !== "" && this.input.password !== "") {
                     api.login({
                         username: this.input.username,
@@ -38,7 +36,7 @@
                     }).then(res => {
                         if (res.status === 200) {
                             this.$emit("authenticated", true);
-                            this.$router.replace(this.$route.query.redirect || '/home')
+                            this.$router.replace("/home");
                         } else {
                             alert("The username and / or password is incorrect.")
                         }

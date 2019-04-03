@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 axios.defaults.withCredentials = true;
 
 const SERVER_URL = 'http://localhost:9000';
@@ -10,5 +11,5 @@ const instance = axios.create({
 
 export default {
     login: (user) => instance.post('login', user),
-    registration: (user) => instance.get('registration', user),
+    registration: (user) => instance.post('registration', user),
 }

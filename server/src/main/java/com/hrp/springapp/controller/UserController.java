@@ -56,7 +56,10 @@ public class UserController {
 
             Cookie jwtCookie = new Cookie("JWT", JWT);
             jwtCookie.setHttpOnly(true);
+            Cookie userId = new Cookie("userId", user.getId().toString());
+            userId.setHttpOnly(true);
             response.addCookie(jwtCookie);
+            response.addCookie(userId);
             response.setStatus(200);
             user.setPassword(null);
             user.setJwt(null);
@@ -74,7 +77,10 @@ public class UserController {
 
             Cookie jwtCookie = new Cookie("JWT", dbUser.getJwt());
             jwtCookie.setHttpOnly(true);
+            Cookie userId = new Cookie("userId", dbUser.getId().toString());
+            userId.setHttpOnly(true);
             response.addCookie(jwtCookie);
+            response.addCookie(userId);
             response.setStatus(200);
 
             dbUser.setJwt(null);
