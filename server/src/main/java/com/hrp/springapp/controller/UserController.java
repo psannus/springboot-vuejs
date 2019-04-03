@@ -1,6 +1,7 @@
 package com.hrp.springapp.controller;
 
 import com.hrp.springapp.jwt.SecurityConstants;
+import com.hrp.springapp.model.Role;
 import com.hrp.springapp.model.User;
 import com.hrp.springapp.service.UserService;
 import io.jsonwebtoken.Jwts;
@@ -48,6 +49,9 @@ public class UserController {
                     .compact();
 
             user.setJwt(JWT);
+            if (user.getRole() == null) {
+                user.setRole(Role.ROLE_USER);
+            }
             userService.save(user);
 
             Cookie jwtCookie = new Cookie("JWT", JWT);
