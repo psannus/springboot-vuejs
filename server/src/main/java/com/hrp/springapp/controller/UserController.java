@@ -54,6 +54,8 @@ public class UserController {
             jwtCookie.setHttpOnly(true);
             response.addCookie(jwtCookie);
             response.setStatus(200);
+            user.setPassword(null);
+            user.setJwt(null);
             return user;
         }
         response.setStatus(400);
