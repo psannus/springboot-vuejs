@@ -1,7 +1,7 @@
 <template>
     <div>
         <Navbar activeTab="Home"/>
-        <homepageBody v-if="(!basketOpen && !categoriesOpen)"></homepageBody>
+        <!-- <homepageBody v-if="(!basketOpen && !categoriesOpen)"></homepageBody> -->
         <Basket v-on:show-basket="showBasket"/>
         <BasketList v-if=basketOpen v-bind:showButton="showButton" v-bind:basketList="basketList"
                     v-on:del-product="deleteProduct"
@@ -27,8 +27,9 @@
     import ProductList from "../components/ProductList";
     import Basket from "../components/Basket"
     import BasketList from "../components/BasketList"
-    import homepageBody from "../components/homepageBody"
+    //import homepageBody from "../components/homepageBody"
     import axios from "axios"
+    axios.defaults.withCredentials = true;
 
     export default {
         name: 'Stock',
@@ -39,7 +40,7 @@
             AddProduct,
             Basket,
             Navbar,
-            homepageBody,
+            //homepageBody,
         },
         mounted() {
             axios.post('http://localhost:9000/categories-get', {
