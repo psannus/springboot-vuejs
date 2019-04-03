@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         <div>
-            <img class="hero-image pb-2" src="../assets/logo.png"/>
+            <img class="hero-image pb-4" src="../assets/logo.png"/>
         </div>
         <div class="hero-text">
             <h3>Track your everyday household items and their quantities</h3>

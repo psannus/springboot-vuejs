@@ -54,6 +54,7 @@
     .navbar a:hover {
         background-color: #ddd;
         color: black;
+        text-decoration: none;
     }
 
     /* Add a color to the active/current link */

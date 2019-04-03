@@ -2,15 +2,10 @@
     <div>
         <div>
             <b-carousel
-                    v-model="slide"
                     :interval="4000"
-                    controls
                     indicators
                     img-width="1240"
-                    img-height="550"
-                    style="text-shadow: 1px 1px 2px #333;"
-                    @sliding-start="onSlideStart"
-                    @sliding-end="onSlideEnd">
+                    img-height="550">
                 <b-carousel-slide style="max-height: 550px">
                     <img
                             slot="img"
@@ -86,8 +81,6 @@
     .container {
         display: flex;
         flex-direction: column;
-        /*justify-content: center;*/
-        /*align-items: center;*/
         width: 80%;
         position: relative;
         margin: 6% auto auto;
