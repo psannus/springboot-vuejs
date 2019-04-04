@@ -34,24 +34,15 @@
         },
         methods: {
             register() {
-                // eslint-disable-next-line
-                console.log(this.input.username, this.input.password);
                 if (this.input.username !== "" && this.input.password !== "") {
                     api.registration({
                         username: this.input.username,
                         password: this.input.password,
                         firstName: this.input.firstName,
                         lastName: this.input.lastName
-                    }).then(res => {
-                        if (res.status === 200) {
-                            this.$emit("authenticated", true);
-                            this.$router.replace(this.$route.query.redirect || '/home')
-                        } else {
-                            alert("Registration failed.")
-                        }
+                    }).then(() => {
+                        this.$router.replace('/home')
                     });
-                } else {
-                    alert("Username and password must be present.")
                 }
             }
         }

@@ -112,8 +112,9 @@ public class ProductsController {
                 && jwtAuthenticationFilter.validateToken(cookies[0].getValue(), Long.parseLong(cookies[1].getValue()))) {
             productsRepository.deleteAll();
             response.setStatus(200);
+        } else {
+            response.setStatus(403);
         }
-        response.setStatus(403);
     }
 
     @PostMapping("/products-list")

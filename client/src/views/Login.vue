@@ -33,16 +33,9 @@
                     api.login({
                         username: this.input.username,
                         password: this.input.password
-                    }).then(res => {
-                        if (res.status === 200) {
-                            this.$emit("authenticated", true);
-                            this.$router.replace("/home");
-                        } else {
-                            alert("The username and / or password is incorrect.")
-                        }
+                    }).then(() => {
+                        this.$router.replace("/home");
                     });
-                } else {
-                    alert("Username and password must be present.")
                 }
             }
         }
