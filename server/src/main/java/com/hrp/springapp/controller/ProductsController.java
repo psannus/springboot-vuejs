@@ -68,11 +68,12 @@ public class ProductsController {
                 productsRepository.delete(tempP);
                 tempP.getProductList().remove(product);
                 productsRepository.save(tempP);
-                response.setStatus(200);
             }
-            response.setStatus(400);
+            response.setStatus(200);
+        } else {
+
+            response.setStatus(403);
         }
-        response.setStatus(403);
     }
 
     @RequestMapping("/basket-list")
@@ -84,7 +85,7 @@ public class ProductsController {
             Long id = Long.parseLong(cookies[1].getValue());
             response.setStatus(200);
             return productsRepository.findAll().stream().filter(p ->
-                    p.getUserId().equals(id)).collect(Collectors.toList());
+                    p.getUserId().equals(1L)).collect(Collectors.toList());
         }
         response.setStatus(403);
         return null;

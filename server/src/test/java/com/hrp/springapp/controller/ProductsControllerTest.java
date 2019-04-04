@@ -14,7 +14,12 @@ import java.io.IOException;
 @SpringBootTest
 public class ProductsControllerTest {
     @Autowired
-    private ProductsRepository productsRepository;
+    private ProductsRepository protsRepository;
+
+    private ProductsController productsController = new ProductsController();
+
+    @Test
+    ductsRepository;
 
     private ProductsController productsController = new ProductsController();
 
