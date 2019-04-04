@@ -45,8 +45,9 @@ public class ProductsController {
             System.out.println(products);
             productsRepository.save(products);
             response.setStatus(200);
+        } else {
+            response.setStatus(403);
         }
-        response.setStatus(403);
     }
 
     @RequestMapping("/basket-remove")
