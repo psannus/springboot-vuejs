@@ -41,7 +41,7 @@ public class ProductsServiceImpl implements ProductsService {
     @Override
     public List<Products> findById(Long id) {
         return productsRepository.findAll().stream().filter(p ->
-                p.getUserId().equals(1L)).collect(Collectors.toList());
+                p.getUserId().equals(id)).collect(Collectors.toList());
     }
 
     @Override

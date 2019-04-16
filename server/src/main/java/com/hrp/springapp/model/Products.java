@@ -22,7 +22,7 @@ public class Products {
     @GeneratedValue
     private Long id;
 
-    private Long userId = 1L;
+    private Long userId;
 
     @NonNull
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

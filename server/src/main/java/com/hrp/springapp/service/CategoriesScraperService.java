@@ -4,13 +4,15 @@ import com.hrp.springapp.model.Categories;
 import com.hrp.springapp.model.Category;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class CategoriesScraperService {
-    public static Categories scrapeCategory(Category category) throws IOException {
+    public Categories scrapeCategory(Category category) throws IOException {
         String url = category.getUrl();
         List<Category> result = new ArrayList<>();
         Document doc = Jsoup.connect(url).timeout(10000).validateTLSCertificates(false).get();
