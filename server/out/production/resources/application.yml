@@ -3,9 +3,15 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+    #Dev
+    #url: jdbc:postgresql://localhost:5432/postgres
+    #username: postgres
+    #password: root
+
+    #AWS
+    url: jdbc:postgresql://postgres.cfjjta8rfcxg.us-east-1.rds.amazonaws.com:5432/postgres
     username: postgres
-    password: root
+    password: password
   jpa:
     hibernate:
       ddl-auto: update

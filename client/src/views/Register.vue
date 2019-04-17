@@ -55,7 +55,7 @@
         position: relative;
         height: 100vh;
         margin: auto;
-        background: #d7ff78 url("../assets/pexels-photo-616404.jpeg");
+        background: #d7ff78 url("https://s3.amazonaws.com/tt-trackify/assets/pexels-photo-616404.jpeg");
         background-size: cover;
         background-position: top;
         background-repeat: no-repeat;

@@ -10,21 +10,21 @@
                     <img
                             slot="img"
                             class="d-block img-fluid w-100"
-                            src="../assets/images.jpg"
+                            src="https://s3.amazonaws.com/tt-trackify/assets/images.jpg"
                             alt="image slot">
                 </b-carousel-slide>
                 <b-carousel-slide style="max-height: 550px; background-color: #a4e271">
                     <img style="max-height: 600px"
                          slot="img"
                          class="d-block img-fluid w-100"
-                         src="../assets/logo.png"
+                         src="https://s3.amazonaws.com/tt-trackify/assets/logo.png"
                          alt="image slot">
                 </b-carousel-slide>
                 <b-carousel-slide style="max-height: 550px">
                     <img
                             slot="img"
                             class="d-block img-fluid w-100"
-                            src="../assets/iStock-862477938.jpg"
+                            src="https://s3.amazonaws.com/tt-trackify/assets/iStock-862477938.jpg"
                             alt="image slot">
                 </b-carousel-slide>
             </b-carousel>
@@ -36,13 +36,13 @@
             </div>
             <div class="row mb-5">
                 <div class="col-sm-4">
-                    <img src="../assets/milk.png" alt="picture">
+                    <img src="https://s3.amazonaws.com/tt-trackify/assets/milk.png" alt="picture">
                 </div>
                 <div class="col-sm-4" style="align-content: center">
-                    <img src="../assets/liha.png" alt="picture">
+                    <img src="https://s3.amazonaws.com/tt-trackify/assets/liha.png" alt="picture">
                 </div>
                 <div class="col-sm-4">
-                    <img src="../assets/vorst.png" alt="picture">
+                    <img src="https://s3.amazonaws.com/tt-trackify/assets/vorst.png" alt="picture">
                 </div>
             </div>
         </div>
@@ -58,13 +58,13 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md-4">
-                    <img src="../assets/healthy.jpg" alt="picture">
+                    <img src="https://s3.amazonaws.com/tt-trackify/assets/healthy.jpg" alt="picture">
                 </div>
                 <div class="col-md-4" style="align-content: center">
-                    <img src="../assets/images.png" alt="picture">
+                    <img src="https://s3.amazonaws.com/tt-trackify/assets/images.png" alt="picture">
                 </div>
                 <div class="col-md-4">
-                    <img src="../assets/food_pyramid.jpg" alt="picture">
+                    <img src="https://s3.amazonaws.com/tt-trackify/assets/food_pyramid.jpg" alt="picture">
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-sm-4" style="height: 280px; width: 280px">
                         <!--<img src="https://via.placeholder.com/280">-->
-                        <img src="../assets/wallpaper-for-facebook-profile-photo.jpg" alt="profile">
+                        <img src="https://s3.amazonaws.com/tt-trackify/assets/wallpaper-for-facebook-profile-photo.jpg" alt="profile">
                     </div>
                     <div class="col-sm-8">
                         <h2>Personal info</h2>
@@ -59,7 +59,7 @@
             Navbar,
         },
         mounted() {
-            axios.get('http://localhost:9000/basket-list', {
+            axios.get('http://ec2-3-92-62-1.compute-1.amazonaws.com:9000/basket-list', {
                 params: {
                     id: 1
                 }

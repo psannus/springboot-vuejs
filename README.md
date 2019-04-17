@@ -3,7 +3,7 @@
 * server:
 ```
     ./gradlew bootRun
-    localhost:9000
+    ec2-3-92-62-1.compute-1.amazonaws.com:9000
 ```
 
 * client:

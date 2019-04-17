@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         <div>
-            <img class="hero-image pb-4" src="../assets/logo.png"/>
+            <img class="hero-image pb-4" src="https://s3.amazonaws.com/tt-trackify/assets/logo.png"/>
         </div>
         <div class="hero-text">
             <h3>Track your everyday household items and their quantities</h3>
@@ -26,7 +26,7 @@
     .wrapper {
         height: 100vh;
         margin: auto;
-        background: #d7ff78 url("../assets/pexels-photo-616404.jpeg");
+        background: #d7ff78 url("https://s3.amazonaws.com/tt-trackify/assets/pexels-photo-616404.jpeg");
         background-size: cover;
         background-position: top;
         background-repeat: no-repeat;

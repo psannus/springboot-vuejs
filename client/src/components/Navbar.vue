@@ -1,7 +1,7 @@
 <template>
     <div class="nav_container">
         <div class="topnav">
-            <router-link to="/home"><img class="logo" alt="Trackify" src="../assets/logo.png"></router-link>
+            <router-link to="/home"><img class="logo" alt="Trackify" src="https://s3.amazonaws.com/tt-trackify/assets/logo.png"></router-link>
         </div>
         <div class="navbar fixed-bottom" id="navbar">
             <router-link to="/stock" :class="{ active: activeTab === 'Stock'}">Stock</router-link>
@@ -81,7 +81,7 @@
         color: #f2f2f2;
         text-align: center;
         text-decoration: none;
-        background-image: url("/src/assets/logo.png");
+        background-image: url("https://s3.amazonaws.com/tt-trackify/assets/logo.png");
     }
 
     .logo {
