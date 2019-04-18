@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import ProductItem from "../components/ProductItem"
+    import ProductItem from "./ProductItem"
 
     export default {
         name: "ProductList",

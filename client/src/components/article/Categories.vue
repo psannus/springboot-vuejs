@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import CategoryItem from '../components/CategoryItem'
+    import CategoryItem from './CategoryItem'
 
     export default {
         name: "Categories",

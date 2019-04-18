@@ -21,14 +21,14 @@
 </style>
 
 <script>
-    import Navbar from "../components/Navbar";
-    import Categories from "../components/Categories";
-    import AddProduct from "../components/AddProduct"
-    import ProductList from "../components/ProductList";
-    import Basket from "./Basket"
-    import BasketList from "../components/BasketList"
-    import homepageBody from "../components/homepageBody"
-    import axios from "axios"
+    import Navbar from "../../components/layout/Navbar";
+    import Categories from "../../components/article/Categories";
+    import AddProduct from "../../components/ui/AddProductButton"
+    import ProductList from "../../components/article/ProductList";
+    import Basket from "../../components/layout/Basket"
+    import BasketList from "../../components/article/BasketList"
+    import homepageBody from "../../components/layout/homepageBody"
+    import axios from "axios/index"
 
     axios.defaults.withCredentials = true;
 

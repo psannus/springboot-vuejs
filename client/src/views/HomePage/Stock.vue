@@ -8,9 +8,9 @@
 </template>
 
 <script>
-    import Navbar from "../components/Navbar";
-    import BasketList from "../components/BasketList"
-    import axios from "axios"
+    import Navbar from "../../components/layout/Navbar";
+    import BasketList from "../../components/article/BasketList"
+    import axios from "axios/index"
 
     export default {
         name: 'Stock',

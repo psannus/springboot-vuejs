@@ -1,9 +1,9 @@
-import Home from './views/Home.vue';
-import Profile from './views/Profile.vue';
-import Stock from './views/Stock.vue';
-import LandingPage from './views/LandingPage.vue';
-import Login from './views/Login.vue';
-import Register from './views/Register.vue'
+import Home from './views/HomePage/Home.vue';
+import Profile from './views/HomePage/Profile.vue';
+import Stock from './views/HomePage/Stock.vue';
+import LandingPage from './views/IndexPage/LandingPage.vue';
+import Login from './views/IndexPage/Login.vue';
+import Register from './views/IndexPage/Register.vue'
 
 export default [
     // Redirects to /route-one as the default route.

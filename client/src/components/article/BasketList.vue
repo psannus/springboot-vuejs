@@ -8,7 +8,7 @@
 </template>
 
 <script>
-    import BasketItem from "../components/BasketItem"
+    import BasketItem from "./BasketItem"
 
     export default {
         name: "BasketList",

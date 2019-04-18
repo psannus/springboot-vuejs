@@ -1,40 +1,47 @@
 <template>
     <div class="wrapper">
-        <div class="login-page">
+        <div class="register-page">
             <div class="form">
                 <form class="login-form">
-                    <input type="text" placeholder="username" name="username" v-model="input.username">
-                    <input type="password" placeholder="password" name="password" v-model="input.password">
-                    <button class="clickable-button" v-on:click="login()">Login</button>
+                    <input type="text" v-model="input.username" placeholder="username">
+                    <input type="password" v-model="input.password" placeholder="password">
+                    <input type="text" v-model="input.firstName" placeholder="first name">
+                    <input type="text" v-model="input.lastName" placeholder="last name">
+                    <input type="email" placeholder="email address">
+                    <button class="clickable-button" v-on:click="register()">Create</button>
+                    <p class="message">Already registered?</p>
+                    <router-link class="button-login" to="/login">Sign in</router-link>
                 </form>
-                <p class="message">Not registered?</p>
-                <router-link class="button-register" to="/Register">Create an account</router-link>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import api from '../Api';
+    import api from '../../Api';
 
     export default {
-        name: "Login",
+        name: "Register",
         data() {
             return {
                 input: {
                     username: "",
-                    password: ""
+                    password: "",
+                    firstName: "",
+                    lastName: "",
                 },
             }
         },
         methods: {
-            login() {
+            register() {
                 if (this.input.username !== "" && this.input.password !== "") {
-                    api.login({
+                    api.registration({
                         username: this.input.username,
-                        password: this.input.password
+                        password: this.input.password,
+                        firstName: this.input.firstName,
+                        lastName: this.input.lastName
                     }).then(() => {
-                        this.$router.replace("/home");
+                        this.$router.replace('/home')
                     });
                 }
             }
@@ -52,10 +59,9 @@
         background-size: cover;
         background-position: top;
         background-repeat: no-repeat;
-
     }
 
-    .login-page {
+    .register-page {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -92,18 +98,22 @@
         font-size: 12px;
     }
 
-    .button-register {
+    .button-login {
         color: #4CAF50;
         text-decoration: none;
-        font-size: 12px
+        font-size: 12px;
     }
 
     .clickable-button {
-        border: none;
+        background-color: #4CAF50;
+    }
+
+    .clickable-button {
         background-color: #4CAF50;
         text-decoration: none;
         padding: 10px 30px;
         color: white;
+        margin-top: 20px;
     }
 
 

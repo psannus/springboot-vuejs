@@ -51,8 +51,8 @@
 
 
 <script>
-    import Navbar from "../components/Navbar";
-    import axios from "axios"
+    import Navbar from "../../components/layout/Navbar";
+    import axios from "axios/index"
 
     export default {
         components: {
