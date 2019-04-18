@@ -9,10 +9,11 @@
   },
   "dependencies": {
     "axios": "0.18.0",
+    "bootstrap-vue": "latest",
     "vue": "^2.5.22",
+    "vue-cookies": "^1.5.13",
     "vue-router": "^3.0.2",
-    "vuejs-logger": "1.5.3",
-    "bootstrap-vue": "latest"
+    "vuejs-logger": "1.5.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",

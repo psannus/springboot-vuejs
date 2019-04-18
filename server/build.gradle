@@ -1,13 +1,13 @@
 buildscript {
-	ext {
-		springBootVersion = '2.1.2.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '2.1.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'java'
@@ -19,20 +19,72 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
+    ivy {
+        url "s3://yourbucket/gradle/"
+        credentials(AwsCredentials) {
+            accessKey "YOUR_AWSAccessKeyId"
+            secretKey "YOUR_AWSSecretKey"
+        }
+        layout "pattern", {
+            artifact "[artifact]-[revision].[ext]"
+        }
+    }
 }
 
 dependencies {
-	compile "io.jsonwebtoken:jjwt-api:0.10.5"
-	compile "io.jsonwebtoken:jjwt-impl:0.10.5"
-	compile "io.jsonwebtoken:jjwt-jackson:0.10.5"
-	compile 'org.flywaydb:flyway-core:5.2.4'
-	compile 'org.jsoup:jsoup:1.11.3'
+    compile "io.jsonwebtoken:jjwt-api:0.10.5"
+    compile "io.jsonwebtoken:jjwt-impl:0.10.5"
+    compile "io.jsonwebtoken:jjwt-jackson:0.10.5"
+    compile 'org.flywaydb:flyway-core:5.2.4'
+    compile 'org.jsoup:jsoup:1.11.3'
     compile("org.springframework.boot:spring-boot-starter-security")
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation('org.postgresql:postgresql')
-	compileOnly 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation('org.postgresql:postgresql')
+    compileOnly 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+task createJar(type: Jar) {
+    archiveName = "GradleJarProject.jar"
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+                'Implementation-Version': version,
+                'Main-Class': 'me.test.Test'
+    }
+    baseName = project.name
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+
+}
+
+task copyRuntimeLibs(type: Copy) {
+    from configurations.runtime
+    into "$buildDir/libs"
+}
+
+bootJar {
+    archiveName "trackify.jar" // <- this overrides the generated jar filename
+    baseName = 'trackify'
+    version =  version
+}
+
+task buildVue(type: Exec) {
+    commandLine 'sh', 'deployVue.sh'
+}
+
+task buildForDocker(type: Copy){
+    from bootJar
+    into 'build/libs/docker'
+    rename { String fileName ->
+        fileName.replace("-$project.version", "")
+    }
+    dependsOn buildVue
+}
+
+task deploy(type: Exec) {
+    dependsOn buildForDocker
+    commandLine 'sh', 'deploy.sh'
 }
