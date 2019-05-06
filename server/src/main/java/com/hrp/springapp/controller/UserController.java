@@ -10,11 +10,13 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.List;
@@ -89,5 +91,22 @@ public class UserController {
         }
         response.setStatus(400);
         return null;
+    }
+
+    @GetMapping("/user")
+    @ResponseBody
+    public User getUser(HttpServletRequest request, HttpServletResponse response) {
+        String id = "0";
+        for (Cookie cookie : request.getCookies()) {
+            if (cookie.getName().equals("userId")) id = cookie.getValue();
+        }
+
+        User user = userService.findById(Long.parseLong(id));
+
+        if (user != null) {
+            return user;
+        } else {
+            return null;
+        }
     }
 }

@@ -3,25 +3,18 @@
         <Navbar activeTab="Profile"/>
         <hr>
         <div class="jumbotron mt-3">
-            <div class="container" style="background-color: white; padding: 2%">
-                <div class="row">
-                    <div class="col-sm-4" style="height: 280px; width: 280px">
-                        <!--<img src="https://via.placeholder.com/280">-->
-                        <img src="https://s3.amazonaws.com/tt-trackify/assets/wallpaper-for-facebook-profile-photo.jpg" alt="profile">
-                    </div>
-                    <div class="col-sm-8">
+            <div class="container" style="background-color: white; padding: 4%; max-width: 900px">
+                <div class="">
                         <h2>Personal info</h2>
                         <hr>
                         <div class="row">
                             <div class="col-sm-4">
                                 <h6 class="pb-4">First name</h6>
-                                <h6 class="pb-4">Second name</h6>
-                                <h6 class="pb-4">Email</h6>
+                                <h6 class="pb-4">Last name</h6>
                             </div>
                             <div class="col-sm-8">
                                 <h6 class="pb-4">{{firstName}}</h6>
                                 <h6 class="pb-4">{{secondName}}</h6>
-                                <h6 class="pb-4">{{Email}}</h6>
                             </div>
                         </div>
                         <h2>Stock</h2>
@@ -39,7 +32,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
@@ -59,6 +51,7 @@
             Navbar,
         },
         mounted() {
+            //axios.get('http://localhost:9000/basket-list', {
             axios.get('http://ec2-3-92-62-1.compute-1.amazonaws.com:9000/basket-list', {
                 params: {
                     id: 1
@@ -71,6 +64,13 @@
                     this.calculation()
 
                 });
+
+            //axios.get('http://localhost:9000/user' , {})
+            axios.get('http://ec2-3-92-62-1.compute-1.amazonaws.com:9000/user', {})
+                .then(res => {
+                    this.firstName = res.data.firstName;
+                    this.secondName = res.data.lastName;
+                })
 
         },
         methods: {
@@ -109,9 +109,8 @@
                 shelf: 0,
                 categorys: "",
                 products: 0,
-                firstName: "...",
+                firstName: "",
                 secondName: "...",
-                Email: "someone@outlook.com"
             }
         }
     }

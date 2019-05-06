@@ -19,6 +19,7 @@
             BasketList,
         },
         mounted() {
+            //axios.get('http://localhost:9000/basket-list', {
             axios.get('http://ec2-3-92-62-1.compute-1.amazonaws.com:9000/basket-list', {
                 params: {
                     id: 1
@@ -35,8 +36,10 @@
         methods: {
             deleteProduct(id) {
                 let remove = this.basketList.find(product => product.id === id);
+                //axios.post('http://localhost:9000/basket-remove', remove).then(res => {
                 axios.post('http://ec2-3-92-62-1.compute-1.amazonaws.com:9000/basket-remove', remove).then(res => {
                     if (res !== null) this.value = "";
+                    //axios.get('http://localhost:9000/basket-list', {
                     axios.get('http://ec2-3-92-62-1.compute-1.amazonaws.com:9000/basket-list', {
                         params: {
                             id: 1
