@@ -75,30 +75,21 @@
         },
         methods: {
             calculation() {
-                let price = 0;
-                let products = 0;
-                let categorys = {};
-                let highest = "";
-                let highest_value = 1;
-                this.stock.forEach(function (item) {
-                    price += (parseFloat(item.price));
-                    products += 1;
-                    if (categorys[item.shelf] == null) {
-                        categorys[item.shelf] = 1;
-                        if (highest_value === 1) {
-                            highest = item.shelf;
-                        }
-                    } else {
-                        categorys[item.shelf] = categorys[item.shelf] + 1;
-                        if (categorys[item.shelf] > highest_value) {
-                            highest_value = categorys[item.shelf];
-                            highest = item.shelf;
-                        }
-                    }
-                });
-                this.price = Math.round(price * 100) / 100;
-                this.products = products;
-                this.categorys = highest;
+                let initialValue = 0;
+
+                this.products = this.stock.length;
+                this.price = this.stock.reduce(function (total, currentValue) {
+                    return total + parseFloat(currentValue.price);
+                }, initialValue);
+
+                let highest = this.stock.reduce(function (countMap, word) {
+                    countMap[word.shelf] = ++countMap[word.shelf] || 1;
+                    return countMap
+                }, {});
+
+                let highest_value = Math.max.apply(null, Object.values(highest));
+
+                this.categorys = Object.keys(highest).find(key => highest[key] === highest_value);
 
             }
         },
