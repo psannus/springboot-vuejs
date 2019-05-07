@@ -29,6 +29,7 @@
     import BasketList from "../../components/article/BasketList"
     import homepageBody from "../../components/layout/homepageBody"
     import axios from "axios/index"
+    import api from "../../Api.js";
 
     axios.defaults.withCredentials = true;
 
@@ -44,15 +45,14 @@
             homepageBody,
         },
         mounted() {
-            //axios.post('http://localhost:9000/categories-get', {
-            axios.post('http://ec2-3-92-62-1.compute-1.amazonaws.com:9000/categories-get', {
+            axios.post(api.url + '/categories-get', {
                 id: "0",
                 url: " https://www.prismamarket.ee/products/selection",
                 name: "init"
             }).then(res => {
                 this.allproducts = res.data.categoryList;
             });
-            axios.get('http://ec2-3-92-62-1.compute-1.amazonaws.com:9000/products-mock')
+            axios.get(api.url + '/products-mock')
                 .then(res => {
                     this.productList = res.data.productlist;
                 });
@@ -83,8 +83,7 @@
                 })
             },
             saveBasketList() {
-                //axios.post('http://localhost:9000/basket-save', {
-                axios.post('http://ec2-3-92-62-1.compute-1.amazonaws.com:9000/basket-save', {
+                axios.post(api.url + '/basket-save', {
                     id: "1",
                     productList: this.basketList
                 })
@@ -95,21 +94,18 @@
             selectCategory(category) {
                 this.depth++;
                 if (this.depth === 1) {
-                    //axios.post('http://localhost:9000/categories-get', category)
-                    axios.post('http://ec2-3-92-62-1.compute-1.amazonaws.com:9000/categories-get', category)
+                    axios.post(api.url + '/categories-get', category)
                         .then(res => {
                             this.categories = res.data.categoryList;
                         });
 
                 } else if (this.depth === 2) {
-                    //axios.post('http://localhost:9000/products-list', category)
-                    axios.post('http://ec2-3-92-62-1.compute-1.amazonaws.com:9000/products-list', category)
+                    axios.post(api.url + '/products-list', category)
                         .then(res => {
                             this.productList = res.data.productList;
                             this.categoriesOpen = false;
                             this.productOpen = true;
                         });
-                    //this.value = this.categories.filter(cat => cat.id === id);
                 }
             },
             showCategories() {

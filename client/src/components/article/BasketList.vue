@@ -1,7 +1,11 @@
 <template>
     <div class="product_container">
         <div v-bind:key="basketItem.id" v-for="basketItem in basketList">
-            <BasketItem v-bind:basketItem="basketItem" v-on:del-product="$emit('del-product', basketItem.id)"/>
+            <BasketItem
+                    v-bind:basketItem="basketItem"
+                    v-on:del-product="$emit('del-product', basketItem.id)"
+                    v-on:update-product="$emit('update-product', basketItem.id, basketItem.expiryDate)"
+            />
         </div>
         <button v-if=showButton class="save-button" v-on:click="$emit('save-list')">Save Products</button>
     </div>

@@ -30,4 +30,6 @@ public class Product {
 
     private String shelf;
 
+    private String expiryDate;
+
 }

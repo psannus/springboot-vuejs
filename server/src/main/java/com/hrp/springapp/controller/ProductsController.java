@@ -46,6 +46,18 @@ public class ProductsController {
         }
     }
 
+    @RequestMapping("/basket-update-expiry")
+    @ResponseBody
+    public void updateProductExpiry(@RequestBody Product product, HttpServletRequest request, HttpServletResponse response) {
+        HashMap<String, String> authResult = authenticationService.checkAuthentication(request);
+        if (authResult != null) {
+            response.setStatus(200);
+            productsService.updateByProduct(product);
+        } else {
+            response.setStatus(403);
+        }
+    }
+
     @RequestMapping("/basket-list")
     @ResponseBody
     public List<Products> getBasketList(HttpServletRequest request, HttpServletResponse response) {

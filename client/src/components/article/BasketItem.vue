@@ -1,12 +1,26 @@
 <template>
     <div class="product-box">
         <img class="product-image" :src="basketItem.image" alt="NONE">
-        <div class="info-display">
-            <h1>{{basketItem.name}}</h1>
-            <h2>Amount: {{basketItem.amount}}</h2>
-            <h2>Shelf: {{basketItem.shelf}}</h2>
-            <h2>{{basketItem.price}}€</h2>
-            <h4>EAN: {{basketItem.ean}}</h4>
+        <div class="info-display-container">
+            <div class="info-display">
+                <h1>{{basketItem.name}}</h1>
+                <h2>Amount: {{basketItem.amount}}</h2>
+                <h2>Shelf: {{basketItem.shelf}}</h2>
+                <h2>{{basketItem.price}}€</h2>
+                <h4>EAN: {{basketItem.ean}}</h4>
+            </div>
+            <div class="info-display-buttons">
+                <h1 v-if="basketItem.expiryDate" class="expiry-date" v-on:click="expiryClick">Expires:
+                    {{basketItem.expiryDate}}</h1>
+                <h1 v-else class="expiry-date" v-on:click="expiryClick">Expiry UNSET</h1>
+                <b-form-input
+                        v-if=showExpiryEdit
+                        class="expiry-date-input form-control-sm"
+                        :type="expiryInput"
+                        v-model="expiry"
+                ></b-form-input>
+                <button v-if=showExpiryEdit v-on:click="setExpiry">set expiry</button>
+            </div>
         </div>
         <button v-on:click="$emit('del-product')" class="circle">-</button>
     </div>
@@ -15,7 +29,23 @@
 <script>
     export default {
         name: "BasketItem",
-        props: ["basketItem"]
+        props: ["basketItem"],
+        data() {
+            return {
+                expiryInput: "date",
+                expiry: "",
+                showExpiryEdit: false,
+            }
+        },
+        methods: {
+            expiryClick() {
+                this.showExpiryEdit === true ? this.showExpiryEdit = false : this.showExpiryEdit = true;
+            },
+            setExpiry() {
+                this.basketItem.expiryDate = this.expiry;
+                this.$emit('update-product');
+            }
+        }
     }
 </script>
 
@@ -78,7 +108,28 @@
 
     .info-display {
         display: flex;
-        width: 25em;
+        width: 20em;
         flex-direction: column;
+    }
+
+    .info-display-container {
+        display: flex;
+    }
+
+    .info-display-buttons {
+        width: 10rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 0.9rem;
+    }
+
+    .expiry-date-input {
+        width: 10rem;
+        align-self: flex-end;
+    }
+
+    .expiry-date {
+        margin-bottom: 1rem;
     }
 </style>

@@ -14,4 +14,5 @@ const instance = axios.create({
 export default {
     login: (user) => instance.post('login', user),
     registration: (user) => instance.post('registration', user),
+    url: SERVER_URL,
 }

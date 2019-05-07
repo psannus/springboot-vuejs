@@ -44,15 +44,15 @@
 
 <script>
     import Navbar from "../../components/layout/Navbar";
-    import axios from "axios/index"
+    import axios from "axios/index";
+    import api from "../../Api.js";
 
     export default {
         components: {
             Navbar,
         },
         mounted() {
-            //axios.get('http://localhost:9000/basket-list', {
-            axios.get('http://ec2-3-92-62-1.compute-1.amazonaws.com:9000/basket-list', {
+            axios.get(api.url + '/basket-list', {
                 params: {
                     id: 1
                 }
@@ -65,8 +65,7 @@
 
                 });
 
-            //axios.get('http://localhost:9000/user' , {})
-            axios.get('http://ec2-3-92-62-1.compute-1.amazonaws.com:9000/user', {})
+            axios.get(api.url + '/user', {})
                 .then(res => {
                     this.firstName = res.data.firstName;
                     this.secondName = res.data.lastName;

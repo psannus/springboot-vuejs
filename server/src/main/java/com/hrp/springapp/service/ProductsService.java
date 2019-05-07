@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface ProductsService {
     void save(Products products);
+
+    void updateByProduct(Product product);
     void removeByProduct(Product product);
     List<Products> findById(Long id);
     List<Products> findAll();

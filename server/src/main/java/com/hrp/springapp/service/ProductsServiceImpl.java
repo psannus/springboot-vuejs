@@ -39,6 +39,22 @@ public class ProductsServiceImpl implements ProductsService {
     }
 
     @Override
+    public void updateByProduct(Product product) {
+        for (Products p : productsRepository.findAll()) {
+            Optional<Product> found = p.getProductList().stream().filter(o -> o.getId().equals(product.getId())).findFirst();
+            if (found.isPresent()) {
+                productsRepository.delete(p);
+                List<Product> products = p.getProductList();
+                products.remove(found.get());
+                products.add(product);
+                p.setProductList(products);
+                productsRepository.save(p);
+                break;
+            }
+        }
+    }
+
+    @Override
     public List<Products> findById(Long id) {
         return productsRepository.findAll().stream().filter(p ->
                 p.getUserId().equals(id)).collect(Collectors.toList());

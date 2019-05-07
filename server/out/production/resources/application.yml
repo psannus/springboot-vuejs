@@ -4,17 +4,19 @@ server:
 spring:
   datasource:
     #Dev
-    #url: jdbc:postgresql://localhost:5432/postgres
-    #username: postgres
-    #password: root
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: root
 
     #AWS
-    url: jdbc:postgresql://postgres.cfjjta8rfcxg.us-east-1.rds.amazonaws.com:5432/postgres
-    username: postgres
-    password: password
+    #url: jdbc:postgresql://postgres.cfjjta8rfcxg.us-east-1.rds.amazonaws.com:5432/postgres
+    #username: postgres
+    #password: password
   jpa:
     hibernate:
       ddl-auto: update
+  flyway:
+    baseline-on-migrate: true
 
 logging:
   level:
